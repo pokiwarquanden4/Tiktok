@@ -1,0 +1,253 @@
+import VideoJS from 'src/components/Video/LightVideo.mp4';
+import LTKH from 'src/components/Video/LTKH.mp4';
+
+const listUser = [
+   {
+      id: 1,
+      name: 'Trần Minh Quang',
+      subTitle: 'Lady Killer Zone',
+      check: false,
+      following: '400',
+      follower: '4M',
+      like: '339.2M',
+      text: 'Xin chao cac ban tre',
+      link: 'Click Here',
+      video: [
+         {
+            id: 1,
+            img: 'https://p19-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/947af1d38d814562bc914724f973e5db~tplv-r00ih4996s-1:720:720.jpeg?x-expires=1667934000&x-signature=jQTpg7jB9mWUDxAO2253LvuGSP0%3D',
+            link: VideoJS,
+            content: 'Hello Everyone',
+         },
+         {
+            id: 2,
+            img: 'https://p19-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/947af1d38d814562bc914724f973e5db~tplv-r00ih4996s-1:720:720.jpeg?x-expires=1667934000&x-signature=jQTpg7jB9mWUDxAO2253LvuGSP0%3D',
+            link: VideoJS,
+            content: 'Hello Everyone',
+         },
+         {
+            id: 3,
+            img: 'https://p19-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/947af1d38d814562bc914724f973e5db~tplv-r00ih4996s-1:720:720.jpeg?x-expires=1667934000&x-signature=jQTpg7jB9mWUDxAO2253LvuGSP0%3D',
+            link: VideoJS,
+            content: 'Hello Everyone',
+         },
+         {
+            id: 4,
+            img: 'https://p19-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/947af1d38d814562bc914724f973e5db~tplv-r00ih4996s-1:720:720.jpeg?x-expires=1667934000&x-signature=jQTpg7jB9mWUDxAO2253LvuGSP0%3D',
+            link: VideoJS,
+            content: 'Hello Everyone',
+         },
+         {
+            id: 5,
+            img: 'https://p19-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/947af1d38d814562bc914724f973e5db~tplv-r00ih4996s-1:720:720.jpeg?x-expires=1667934000&x-signature=jQTpg7jB9mWUDxAO2253LvuGSP0%3D',
+            link: VideoJS,
+            content: 'Hello Everyone',
+         },
+         {
+            id: 6,
+            img: 'https://p19-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/947af1d38d814562bc914724f973e5db~tplv-r00ih4996s-1:720:720.jpeg?x-expires=1667934000&x-signature=jQTpg7jB9mWUDxAO2253LvuGSP0%3D',
+            link: VideoJS,
+            content: 'Hello Everyone',
+         },
+         {
+            id: 7,
+            img: 'https://p19-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/947af1d38d814562bc914724f973e5db~tplv-r00ih4996s-1:720:720.jpeg?x-expires=1667934000&x-signature=jQTpg7jB9mWUDxAO2253LvuGSP0%3D',
+            link: VideoJS,
+            content: 'Hello Everyone',
+         },
+         {
+            id: 8,
+            img: 'https://p19-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/947af1d38d814562bc914724f973e5db~tplv-r00ih4996s-1:720:720.jpeg?x-expires=1667934000&x-signature=jQTpg7jB9mWUDxAO2253LvuGSP0%3D',
+            link: VideoJS,
+            content: 'Hello Everyone',
+         },
+         {
+            id: 9,
+            img: 'https://p19-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/947af1d38d814562bc914724f973e5db~tplv-r00ih4996s-1:720:720.jpeg?x-expires=1667934000&x-signature=jQTpg7jB9mWUDxAO2253LvuGSP0%3D',
+            link: VideoJS,
+            content: 'Hello Everyone',
+         },
+      ],
+      likeVideo: [
+         {
+            id: 1,
+            img: 'https://p16-sign-va.tiktokcdn.com/tos-useast2a-p-0037-aiso/88ff4fe6032744abbecc3576ea1a5092_1629808507~tplv-f5insbecw7-1:480:480.jpeg?x-expires=1665000000&x-signature=JXKehQdzZTCVG93KMq3JjMj5xP8%3D',
+            link: LTKH,
+            content: 'Hello Everyone',
+         },
+         {
+            id: 2,
+            img: 'https://p16-sign-va.tiktokcdn.com/tos-useast2a-p-0037-aiso/88ff4fe6032744abbecc3576ea1a5092_1629808507~tplv-f5insbecw7-1:480:480.jpeg?x-expires=1665000000&x-signature=JXKehQdzZTCVG93KMq3JjMj5xP8%3D',
+            link: LTKH,
+            content: 'Hello Everyone',
+         },
+         {
+            id: 3,
+            img: 'https://p16-sign-va.tiktokcdn.com/tos-useast2a-p-0037-aiso/88ff4fe6032744abbecc3576ea1a5092_1629808507~tplv-f5insbecw7-1:480:480.jpeg?x-expires=1665000000&x-signature=JXKehQdzZTCVG93KMq3JjMj5xP8%3D',
+            link: LTKH,
+            content: 'Hello Everyone',
+         },
+         {
+            id: 4,
+            img: 'https://p16-sign-va.tiktokcdn.com/tos-useast2a-p-0037-aiso/88ff4fe6032744abbecc3576ea1a5092_1629808507~tplv-f5insbecw7-1:480:480.jpeg?x-expires=1665000000&x-signature=JXKehQdzZTCVG93KMq3JjMj5xP8%3D',
+            link: LTKH,
+            content: 'Hello Everyone',
+         },
+         {
+            id: 5,
+            img: 'https://p16-sign-va.tiktokcdn.com/tos-useast2a-p-0037-aiso/88ff4fe6032744abbecc3576ea1a5092_1629808507~tplv-f5insbecw7-1:480:480.jpeg?x-expires=1665000000&x-signature=JXKehQdzZTCVG93KMq3JjMj5xP8%3D',
+            link: LTKH,
+            content: 'Hello Everyone',
+         },
+         {
+            id: 6,
+            img: 'https://p16-sign-va.tiktokcdn.com/tos-useast2a-p-0037-aiso/88ff4fe6032744abbecc3576ea1a5092_1629808507~tplv-f5insbecw7-1:480:480.jpeg?x-expires=1665000000&x-signature=JXKehQdzZTCVG93KMq3JjMj5xP8%3D',
+            link: LTKH,
+            content: 'Hello Everyone',
+         },
+         {
+            id: 7,
+            img: 'https://p16-sign-va.tiktokcdn.com/tos-useast2a-p-0037-aiso/88ff4fe6032744abbecc3576ea1a5092_1629808507~tplv-f5insbecw7-1:480:480.jpeg?x-expires=1665000000&x-signature=JXKehQdzZTCVG93KMq3JjMj5xP8%3D',
+            link: LTKH,
+            content: 'Hello Everyone',
+         },
+         {
+            id: 8,
+            img: 'https://p16-sign-va.tiktokcdn.com/tos-useast2a-p-0037-aiso/88ff4fe6032744abbecc3576ea1a5092_1629808507~tplv-f5insbecw7-1:480:480.jpeg?x-expires=1665000000&x-signature=JXKehQdzZTCVG93KMq3JjMj5xP8%3D',
+            link: LTKH,
+            content: 'Hello Everyone',
+         },
+         {
+            id: 9,
+            img: 'https://p16-sign-va.tiktokcdn.com/tos-useast2a-p-0037-aiso/88ff4fe6032744abbecc3576ea1a5092_1629808507~tplv-f5insbecw7-1:480:480.jpeg?x-expires=1665000000&x-signature=JXKehQdzZTCVG93KMq3JjMj5xP8%3D',
+            link: LTKH,
+            content: 'Hello Everyone',
+         },
+      ],
+   },
+   {
+      id: 1,
+      name: 'Nguyễn Thị Quỳnh',
+      subTitle: 'Sexy Lady',
+      check: true,
+      following: '4000',
+      follower: '4M',
+      like: '339.2M',
+      text: 'Xin chào thằng lồn',
+      link: 'Click Here',
+      video: [
+         {
+            id: 1,
+            img: 'https://p16-sign-va.tiktokcdn.com/tos-useast2a-p-0037-aiso/88ff4fe6032744abbecc3576ea1a5092_1629808507~tplv-f5insbecw7-1:480:480.jpeg?x-expires=1665000000&x-signature=JXKehQdzZTCVG93KMq3JjMj5xP8%3D',
+            link: LTKH,
+            content: 'Hello Everyone',
+         },
+         {
+            id: 2,
+            img: 'https://p16-sign-va.tiktokcdn.com/tos-useast2a-p-0037-aiso/88ff4fe6032744abbecc3576ea1a5092_1629808507~tplv-f5insbecw7-1:480:480.jpeg?x-expires=1665000000&x-signature=JXKehQdzZTCVG93KMq3JjMj5xP8%3D',
+            link: LTKH,
+            content: 'Hello Everyone',
+         },
+         {
+            id: 3,
+            img: 'https://p16-sign-va.tiktokcdn.com/tos-useast2a-p-0037-aiso/88ff4fe6032744abbecc3576ea1a5092_1629808507~tplv-f5insbecw7-1:480:480.jpeg?x-expires=1665000000&x-signature=JXKehQdzZTCVG93KMq3JjMj5xP8%3D',
+            link: LTKH,
+            content: 'Hello Everyone',
+         },
+         {
+            id: 4,
+            img: 'https://p16-sign-va.tiktokcdn.com/tos-useast2a-p-0037-aiso/88ff4fe6032744abbecc3576ea1a5092_1629808507~tplv-f5insbecw7-1:480:480.jpeg?x-expires=1665000000&x-signature=JXKehQdzZTCVG93KMq3JjMj5xP8%3D',
+            link: LTKH,
+            content: 'Hello Everyone',
+         },
+         {
+            id: 5,
+            img: 'https://p16-sign-va.tiktokcdn.com/tos-useast2a-p-0037-aiso/88ff4fe6032744abbecc3576ea1a5092_1629808507~tplv-f5insbecw7-1:480:480.jpeg?x-expires=1665000000&x-signature=JXKehQdzZTCVG93KMq3JjMj5xP8%3D',
+            link: LTKH,
+            content: 'Hello Everyone',
+         },
+         {
+            id: 6,
+            img: 'https://p16-sign-va.tiktokcdn.com/tos-useast2a-p-0037-aiso/88ff4fe6032744abbecc3576ea1a5092_1629808507~tplv-f5insbecw7-1:480:480.jpeg?x-expires=1665000000&x-signature=JXKehQdzZTCVG93KMq3JjMj5xP8%3D',
+            link: LTKH,
+            content: 'Hello Everyone',
+         },
+         {
+            id: 7,
+            img: 'https://p16-sign-va.tiktokcdn.com/tos-useast2a-p-0037-aiso/88ff4fe6032744abbecc3576ea1a5092_1629808507~tplv-f5insbecw7-1:480:480.jpeg?x-expires=1665000000&x-signature=JXKehQdzZTCVG93KMq3JjMj5xP8%3D',
+            link: LTKH,
+            content: 'Hello Everyone',
+         },
+         {
+            id: 8,
+            img: 'https://p16-sign-va.tiktokcdn.com/tos-useast2a-p-0037-aiso/88ff4fe6032744abbecc3576ea1a5092_1629808507~tplv-f5insbecw7-1:480:480.jpeg?x-expires=1665000000&x-signature=JXKehQdzZTCVG93KMq3JjMj5xP8%3D',
+            link: LTKH,
+            content: 'Hello Everyone',
+         },
+         {
+            id: 9,
+            img: 'https://p16-sign-va.tiktokcdn.com/tos-useast2a-p-0037-aiso/88ff4fe6032744abbecc3576ea1a5092_1629808507~tplv-f5insbecw7-1:480:480.jpeg?x-expires=1665000000&x-signature=JXKehQdzZTCVG93KMq3JjMj5xP8%3D',
+            link: LTKH,
+            content: 'Hello Everyone',
+         },
+      ],
+      likeVideo: [
+         {
+            id: 1,
+            img: 'https://p19-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/947af1d38d814562bc914724f973e5db~tplv-r00ih4996s-1:720:720.jpeg?x-expires=1667934000&x-signature=jQTpg7jB9mWUDxAO2253LvuGSP0%3D',
+            link: VideoJS,
+            content: 'Hello Everyone',
+         },
+         {
+            id: 2,
+            img: 'https://p19-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/947af1d38d814562bc914724f973e5db~tplv-r00ih4996s-1:720:720.jpeg?x-expires=1667934000&x-signature=jQTpg7jB9mWUDxAO2253LvuGSP0%3D',
+            link: VideoJS,
+            content: 'Hello Everyone',
+         },
+         {
+            id: 3,
+            img: 'https://p19-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/947af1d38d814562bc914724f973e5db~tplv-r00ih4996s-1:720:720.jpeg?x-expires=1667934000&x-signature=jQTpg7jB9mWUDxAO2253LvuGSP0%3D',
+            link: VideoJS,
+            content: 'Hello Everyone',
+         },
+         {
+            id: 4,
+            img: 'https://p19-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/947af1d38d814562bc914724f973e5db~tplv-r00ih4996s-1:720:720.jpeg?x-expires=1667934000&x-signature=jQTpg7jB9mWUDxAO2253LvuGSP0%3D',
+            link: VideoJS,
+            content: 'Hello Everyone',
+         },
+         {
+            id: 5,
+            img: 'https://p19-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/947af1d38d814562bc914724f973e5db~tplv-r00ih4996s-1:720:720.jpeg?x-expires=1667934000&x-signature=jQTpg7jB9mWUDxAO2253LvuGSP0%3D',
+            link: VideoJS,
+            content: 'Hello Everyone',
+         },
+         {
+            id: 6,
+            img: 'https://p19-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/947af1d38d814562bc914724f973e5db~tplv-r00ih4996s-1:720:720.jpeg?x-expires=1667934000&x-signature=jQTpg7jB9mWUDxAO2253LvuGSP0%3D',
+            link: VideoJS,
+            content: 'Hello Everyone',
+         },
+         {
+            id: 7,
+            img: 'https://p19-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/947af1d38d814562bc914724f973e5db~tplv-r00ih4996s-1:720:720.jpeg?x-expires=1667934000&x-signature=jQTpg7jB9mWUDxAO2253LvuGSP0%3D',
+            link: VideoJS,
+            content: 'Hello Everyone',
+         },
+         {
+            id: 8,
+            img: 'https://p19-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/947af1d38d814562bc914724f973e5db~tplv-r00ih4996s-1:720:720.jpeg?x-expires=1667934000&x-signature=jQTpg7jB9mWUDxAO2253LvuGSP0%3D',
+            link: VideoJS,
+            content: 'Hello Everyone',
+         },
+         {
+            id: 9,
+            img: 'https://p19-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/947af1d38d814562bc914724f973e5db~tplv-r00ih4996s-1:720:720.jpeg?x-expires=1667934000&x-signature=jQTpg7jB9mWUDxAO2253LvuGSP0%3D',
+            link: VideoJS,
+            content: 'Hello Everyone',
+         },
+      ],
+   },
+];
+
+export default listUser;

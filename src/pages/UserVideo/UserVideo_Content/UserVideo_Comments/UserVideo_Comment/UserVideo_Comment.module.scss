@@ -1,0 +1,102 @@
+.comment_wrapper {
+   display: flex;
+   margin-bottom: 15px;
+   .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+   }
+   .avatarNotHost {
+      margin-left: 50px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      object-fit: cover;
+   }
+   .mainContent {
+      flex: 1;
+      margin-left: 10px;
+      .name {
+         font-weight: bolder;
+         font-size: 18px;
+
+         cursor: pointer;
+         &:hover {
+            text-decoration: underline;
+         }
+      }
+      .content {
+         margin-top: 3px;
+         font-weight: lighter;
+      }
+      .response {
+         margin-top: 8px;
+         display: flex;
+         .date {
+            color: rgba(22, 24, 35, 0.5);
+            font-size: 14px;
+            line-height: 20px;
+         }
+         .answer {
+            color: rgba(22, 24, 35, 0.5);
+            font-size: 14px;
+            line-height: 20px;
+            margin-left: 15px;
+            cursor: pointer;
+         }
+      }
+   }
+   .userAction {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .moreAction {
+         height: 24px;
+         .threeDotIcon {
+            opacity: 0;
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+         }
+         .report {
+            width: 200px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            min-height: 0;
+            padding: 8px 16px;
+            .flagIcon {
+               cursor: pointer;
+               width: 24px;
+               height: 24px;
+            }
+            .reportContent {
+               cursor: pointer;
+               margin-left: 8px;
+               font-weight: bolder;
+               font-size: 16px;
+            }
+         }
+      }
+      .heartAction {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         .heartIcon {
+            cursor: pointer;
+         }
+         .heartIconFill {
+            cursor: pointer;
+         }
+         .heartNumber {
+            margin-top: 5px;
+            color: rgba(22, 24, 35, 0.5);
+            font-size: 14px;
+         }
+      }
+   }
+   &:hover .threeDotIcon {
+      opacity: 1 !important;
+   }
+}

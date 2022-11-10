@@ -1,0 +1,39 @@
+.wrapper {
+    .header{
+        color: rgb(22, 24, 35);
+        font-family: SofiaPro, Arial, Tahoma, PingFangSC, sans-serif;
+        font-size: 30px;
+        margin: 16px auto;
+        font-weight: bold;
+        text-align: center;
+    }
+    .user {
+        padding: 0 55px;
+        .nickName_title, .password_title {
+            color: rgb(22, 24, 35);
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 22px;
+            margin-bottom: 4px;
+        }
+        .nickName_input, .password_input {
+            width: 100%;
+            background-color: #f1f1f2;
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin-bottom: 5px;
+        }
+        .login{
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            .loginButton {
+                padding: 7px 0;
+            }
+        }
+        .errorMessage {
+            font-size: 14px;
+            color: red;
+        }
+    }
+}

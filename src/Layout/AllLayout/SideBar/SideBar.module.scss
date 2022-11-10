@@ -1,0 +1,43 @@
+.content {
+   position: fixed;
+
+   &:hover .scrollBar_hider {
+      background-color: transparent;
+   }
+}
+
+.wrapper {
+   overflow-y: scroll;
+   height: calc(100vh - var(--defaultLayout-header-heght));
+   width: 348px;
+   padding-left: 8px;
+   padding-top: 20px;
+   z-index: 9;
+   &::-webkit-scrollbar-thumb {
+      background-color: rgba(22, 24, 35, 0.06);
+   }
+}
+.scrollBar_hider {
+   position: absolute;
+   width: 10px;
+   height: 100%;
+   overflow-y: overlay;
+   background-color: #fff;
+   transition: all 0.5s;
+   opacity: 1;
+   top: 0;
+   right: 0;
+}
+
+@keyframes appear {
+   from {
+      opacity: 0;
+   }
+   to {
+      opacity: 1;
+   }
+}
+
+.wrapper.smallSize {
+   width: var(--smallSize-width);
+}

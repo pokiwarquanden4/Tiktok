@@ -1,0 +1,58 @@
+.wrapper {
+   margin: auto;
+   position: relative;
+   text-align: center;
+   .ball_1 {
+      background-color: #f23155;
+      right: 0;
+      animation-name: animation1;
+   }
+   .ball_2 {
+      background-color: #67f1ff;
+      left: 0;
+      animation-name: animation2;
+   }
+   .ball_1,
+   .ball_2 {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+      border-radius: 50%;
+      animation-duration: 1s;
+      animation-direction: alternate;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+   }
+}
+
+@keyframes animation2 {
+   0% {
+      transform: translateX(0);
+      max-width: 25%;
+      max-height: 50%;
+   }
+   25% {
+      transform: translateX(150%);
+   }
+   50% {
+      transform: translate(100%);
+   }
+   75% {
+   }
+   100% {
+   }
+}
+@keyframes animation1 {
+   0% {
+      transform: translateX(0);
+   }
+   50% {
+      transform: translateX(-150%);
+      max-width: 25%;
+      max-height: 50%;
+   }
+   100% {
+      transform: translate(-100%);
+   }
+}

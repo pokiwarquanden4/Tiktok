@@ -1,0 +1,145 @@
+.userInfo {
+   .mainInfo {
+      display: flex;
+      align-items: center;
+      width: 624px;
+      .avatar {
+         width: 116px;
+         height: 116px;
+         border-radius: 50%;
+         object-fit: cover;
+      }
+      .userInfo {
+         margin-left: 20px;
+         width: 400px;
+         .userName {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+            font-family: SofiaPro, Arial, Tahoma, PingFangSC, sans-serif;
+            font-weight: 700;
+            font-size: 26px;
+            line-height: 30px;
+            padding-bottom: 4px;
+            text-align: left;
+            color: #6cd5ec;
+            .checkIcon {
+               margin-bottom: 2px;
+               margin-left: 6px;
+               width: 20px;
+               height: 20px;
+            }
+         }
+         .userNickname {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+            font-family: SofiaPro, Arial, Tahoma, PingFangSC, sans-serif;
+            font-weight: 500;
+            font-size: 17px;
+            padding-bottom: 4px;
+            text-align: left;
+            color: #6cd5ec;
+         }
+         .followButton {
+            margin-top: 10px;
+            width: 208px;
+            height: 36px;
+         }
+         .messageButton {
+            border-radius: 4px;
+            padding: 6px 10px;
+            width: 164px;
+            height: 36px;
+            font-weight: 700;
+            font-weight: bolder;
+            font-size: 18px;
+            line-height: 22px;
+            color: var(--main-color);
+            border: solid 1px var(--main-color);
+            &:hover {
+               background-color: #fef3f5;
+            }
+         }
+         .buttonWrapper {
+            margin-top: 10px;
+            display: flex;
+         }
+         .userIcon {
+            height: 36px;
+            margin-left: 5px;
+            border-radius: 4px;
+            padding: 5px 7px;
+            border: rgba(22, 24, 35, 0.1) solid 1px;
+
+            &:hover {
+               background-color: #f8f8f8;
+               cursor: pointer;
+            }
+         }
+      }
+      .userContact {
+         margin-top: 10px;
+         align-self: flex-start;
+
+         .shareIcon_menu {
+            width: 280px;
+            height: 280px;
+         }
+         .shareIcon {
+            width: 23px;
+            height: 23px;
+            &:hover {
+               cursor: pointer;
+            }
+         }
+         .threeDot {
+            color: #b0b0b4;
+            margin-left: 10px;
+            margin-bottom: 4px;
+            font-size: 22px;
+            &:hover {
+               cursor: pointer;
+            }
+         }
+      }
+   }
+   .followInfo {
+      margin-top: 20px;
+      display: flex;
+      .currentFollow,
+      .follower,
+      .likes {
+         font-size: 17px;
+         color: rgba(22, 24, 35, 1);
+         font-weight: bolder;
+         display: flex;
+      }
+
+      .follower,
+      .likes {
+         margin-left: 20px;
+      }
+
+      .currentFollow_title,
+      .follower_title,
+      .likes_title {
+         color: rgba(22, 24, 35, 0.75);
+         font-weight: 400;
+         margin-left: 5px;
+      }
+   }
+   .discription {
+      margin-top: 15px;
+      margin-bottom: 15px;
+   }
+   .pageLink {
+      display: flex;
+      .pageLink_content {
+         font-weight: bold;
+         line-height: 20px;
+      }
+   }
+}

@@ -1,0 +1,14 @@
+.wrapper {
+   box-shadow: none;
+   padding: 16px 0;
+   border-top: 1px rgba(0, 0, 0, 0.1) solid;
+
+   .title {
+      padding: 0 8px;
+      margin-bottom: 8px;
+      font-size: 14px;
+      line-height: 20px;
+      color: rgba(22, 24, 35, 0.75);
+      font-weight: 600;
+   }
+}

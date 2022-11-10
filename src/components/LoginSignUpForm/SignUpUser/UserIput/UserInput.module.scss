@@ -1,0 +1,32 @@
+.wrapper {
+    .user {
+        .name {
+            display: flex;
+            justify-content: space-between;
+        }
+        .fullName_input, .lastName_input {
+            width: 170px !important;
+        }
+        .fullName_title, .lastName_title, .nickName_title, .password_title, .avatar_title {
+            color: rgb(22, 24, 35);
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 22px;
+            margin-bottom: 4px;
+        }
+        .fullName_input, .lastName_input, .nickName_input, .password_input {
+            width: 100%;
+            background-color: #f1f1f2;
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin-bottom: 5px;
+        }
+        .nickName_announcement {
+            margin-left: 4px;
+            color: red;
+            font-size: 14px;
+        }
+    }
+    
+    
+}

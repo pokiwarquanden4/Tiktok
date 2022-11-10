@@ -1,0 +1,26 @@
+.cover {
+   margin-top: 30px;
+   .cover_header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 7px;
+      .cover_title {
+         font-size: 15px;
+         color: #161823;
+         font-weight: 600;
+      }
+   }
+   .cover_body {
+      border: solid #e3e3e4 1px;
+      border-radius: 4px;
+      display: flex;
+      width: 704px;
+      height: 168px;
+      padding: 6px;
+      .cover_video {
+         width: 84.2px;
+         height: 100%;
+         background-color: #f8f8f8;
+      }
+   }
+}

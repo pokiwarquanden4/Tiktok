@@ -1,0 +1,161 @@
+.lists {
+   --video-width: 290px;
+
+   display: flex;
+   margin: 0 16px;
+   padding: 24px 0;
+   width: 692px;
+   border-bottom: 1px solid #e9e9eb;
+
+   .avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+
+      &:hover {
+         cursor: pointer;
+      }
+   }
+
+   .main {
+      margin-left: 12px;
+      flex: 1;
+   }
+}
+
+.video_Wrapper {
+   margin-top: 10px;
+   display: flex;
+   width: none;
+
+   .userAction {
+      margin-left: 21px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      .userHeart,
+      .userComment,
+      .userShare {
+         display: flex;
+         flex-direction: column;
+         justify-content: flex-end;
+         width: 48px;
+         height: 79px;
+      }
+
+      .heartIcon,
+      .commentIcon,
+      .shareIcon {
+         margin-top: 0px;
+         margin-bottom: 6px;
+         font-size: 24px;
+         padding: 13px;
+         border-radius: 50%;
+         background-color: #f1f1f2;
+         transition: background-color ease-in-out 200ms;
+         &:hover {
+            background-color: rgba(22, 24, 35, 0.1);
+            cursor: pointer;
+         }
+      }
+
+      .numberHeart,
+      .numberComment,
+      .numberShare {
+         font-size: 12px;
+         line-height: 19px;
+         width: 100%;
+         text-align: center;
+      }
+   }
+}
+
+.check {
+   margin-left: 8px;
+   font-size: 14px;
+   color: rgb(32, 213, 236);
+}
+
+.content {
+   display: flex;
+   justify-content: space-between;
+   .contentTitle {
+      width: 500px;
+      margin-top: 5px;
+
+      .name_info {
+         display: flex;
+         align-items: center;
+         .main_Name {
+            font-family: SofiaPro, Arial, Tahoma, PingFangSC, sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            display: inline-block;
+            margin-right: 4px;
+            display: flex;
+         }
+         .sub_Name {
+            font-family: ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            padding-top: 3.5px;
+            display: inline-block;
+         }
+
+         &:hover {
+            cursor: pointer;
+         }
+
+         &:hover .main_Name {
+            text-decoration: underline;
+         }
+      }
+      .more_info {
+         display: flex;
+         flex-wrap: wrap;
+         margin-top: 4px;
+         .message {
+            font-weight: 400;
+            line-height: 21px;
+            margin-right: 5px;
+         }
+         .hastag {
+            line-height: 21px;
+            margin-right: 5px;
+            &:hover {
+               cursor: pointer;
+               text-decoration: underline;
+            }
+         }
+      }
+      .backGround_music {
+         margin-top: 4px;
+         color: rgba(22, 24, 35, 1);
+         font-weight: 600;
+         font-size: 16px;
+         display: flex;
+
+         .music_title {
+            margin-left: 4px;
+         }
+
+         &:hover {
+            cursor: pointer;
+            text-decoration: underline;
+         }
+      }
+   }
+   .button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 80px;
+      width: 88px;
+      height: 28px;
+   }
+}
+
+.smallVideo {
+   height: 517px !important;
+}

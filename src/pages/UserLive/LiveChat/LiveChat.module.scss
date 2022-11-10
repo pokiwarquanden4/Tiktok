@@ -1,0 +1,96 @@
+.liveChat {
+   position: fixed;
+   overflow-y: overlay;
+   overflow-x: hidden;
+   margin-top: var(--defaultLayout-header-heght);
+   right: 0;
+   top: 0;
+   box-shadow: rgb(0 0 0 / 12%) -2px 0px 4px;
+   width: var(--liveChat-width);
+   transition: all 0.2s linear;
+   height: calc(100% - var(--defaultLayout-header-heght));
+   .header {
+      position: fixed;
+      width: var(--liveChat-width);
+      padding: 0 16px;
+      border-bottom: solid 1px #d0d1d3;
+      display: flex;
+      align-items: center;
+      height: 48px;
+      background-color: #fff;
+      .closingIcon {
+         cursor: pointer;
+      }
+      .header_title {
+         font-family: ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+         font-weight: bolder;
+         font-size: 18px;
+         text-align: center;
+         margin-left: 105px;
+      }
+   }
+   .topRank {
+      height: 140px;
+      border-bottom: solid 1px #d0d1d3;
+   }
+   .chatBox {
+      padding-top: 15px;
+      padding-bottom: 64px;
+      .comment {
+      }
+   }
+   .input {
+      position: fixed;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+      padding: 13px;
+      .input_wrapper {
+         border: 1px solid transparent;
+         width: 281px;
+         height: 38px;
+         padding: 5px 15px;
+         border-radius: 8px;
+         background-color: #f1f1f2;
+         display: flex;
+         align-items: center;
+         .inputText {
+            flex: 1;
+            font-size: 15px;
+            background-color: #f1f1f2;
+            font-weight: 100;
+         }
+         .inputText::placeholder {
+            color: rgba(22, 24, 35, 0.5);
+         }
+         .inputIcon {
+            height: 22px;
+            .emotionIcon {
+               width: 22px;
+               height: 22px;
+            }
+         }
+      }
+      .focus {
+         border: 1px solid rgba(22, 24, 35, 0.2);
+      }
+      .sendIcon {
+         height: 22px;
+         margin-left: 7px;
+         .sending {
+            width: 22px;
+            height: 22px;
+            opacity: 0.1;
+         }
+         .sendingActive {
+            width: 22px;
+            height: 22px;
+         }
+      }
+   }
+}
+
+.collapse {
+   transform: translateX(100%);
+}

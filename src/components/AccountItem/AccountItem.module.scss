@@ -1,0 +1,52 @@
+.wrapper {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding-top: 15px;
+   padding-left: 10px;
+   padding-bottom: 10px;
+
+   img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 12px;
+   }
+
+   .info {
+      flex: 1;
+   }
+
+   &:hover {
+      background-color: rgba(22, 24, 35, 0.03);
+   }
+}
+.main__Name {
+   font-size: 14px;
+   font-weight: 600;
+   overflow: hidden;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 1;
+}
+.sub__Name {
+   font-size: 13px;
+   color: rgba(22, 24, 35, 0.5);
+}
+.checkIcon {
+   margin-left: 8px;
+   font-size: 14px;
+   color: rgb(32, 213, 236);
+}
+.currenWather {
+   color: rgb(22, 24, 35);
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   font-size: 14px;
+   line-height: 45px;
+   text-align: center;
+   margin-inline-start: 10px;
+   min-width: 40px;
+}

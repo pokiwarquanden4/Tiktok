@@ -1,0 +1,44 @@
+.wrapper {
+   box-shadow: none;
+   padding: 16px 0;
+   border-top: 1px rgba(0, 0, 0, 0.1) solid;
+
+   .recommendAccount {
+      cursor: pointer;
+      margin: 0;
+      padding: 8px;
+   }
+
+   .title {
+      padding: 0 8px;
+      margin-bottom: 8px;
+      font-size: 14px;
+      line-height: 20px;
+      color: rgba(22, 24, 35, 0.75);
+      font-weight: 600;
+   }
+
+   .image {
+      width: 32px;
+      height: 32px;
+   }
+
+   .viewMore {
+      padding-left: 10px;
+      font-size: 14px;
+      line-height: 20px;
+      font-family: var(--font-family-bold);
+      color: var(--main-color);
+      cursor: pointer;
+      padding-bottom: 5px;
+   }
+
+   .emptyMessage {
+      color: rgba(22, 24, 35, 0.5);
+      font-family: ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      padding: 0px 8px;
+   }
+}

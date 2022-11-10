@@ -1,0 +1,47 @@
+.wrapper {
+   padding: 7px 20px 7px 10px;
+   display: flex;
+   .avatar_wrapper {
+      .avatar {
+         border-radius: 50%;
+         width: 24px;
+         height: 24px;
+         object-fit: cover;
+      }
+   }
+
+   .content {
+      margin-left: 9px;
+      .content_user {
+         font-weight: bolder;
+         margin-right: 5px;
+         &:hover {
+            cursor: pointer;
+            color: rgb(16, 162, 197);
+         }
+      }
+      .content_title {
+      }
+   }
+   .iconWrapper {
+      align-self: center;
+      .optionIcon {
+         opacity: 0;
+         cursor: pointer;
+         width: 16px;
+         height: 16px;
+         &:hover {
+            opacity: 1;
+            color: red;
+         }
+      }
+   }
+}
+.hoverAction {
+   &:hover {
+      background-color: rgba(22, 24, 35, 0.03);
+   }
+   &:hover .optionIcon {
+      opacity: 1;
+   }
+}

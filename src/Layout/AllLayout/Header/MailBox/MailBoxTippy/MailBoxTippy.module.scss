@@ -1,0 +1,52 @@
+.wrapper {
+   max-height: 640px;
+   width: 376px;
+   padding-top: 0;
+
+   .header {
+      padding-top: 24px;
+      padding-left: 16px;
+      .message {
+         color: rgb(22, 24, 35);
+         font-family: 'IBM Plex Sans', SofiaPro, Arial, Tahoma, PingFangSC, sans-serif;
+         font-weight: 700;
+         font-size: 24px;
+         line-height: 28px;
+      }
+      .actionTitle {
+         margin-top: 16px;
+      }
+      .tag {
+         margin-right: 8px;
+         margin-bottom: 12px;
+         background-color: rgb(241, 241, 241);
+         &:hover {
+            cursor: pointer;
+         }
+      }
+   }
+}
+
+//No Data
+
+.content {
+   max-height: 500px;
+   overflow-y: overlay;
+
+   .noData {
+      text-align: center;
+      padding: 88px 32px 0 32px;
+
+      .noData_Comment {
+         margin-top: 20px;
+      }
+      .noData_SubComment {
+         margin-top: 12px;
+      }
+   }
+}
+
+//Loading
+.loading {
+   height: 500px;
+}

@@ -1,0 +1,100 @@
+.main {
+   margin-left: var(--smallSize-width);
+   padding: 32px 24px;
+
+   .content {
+      margin-top: 35px;
+      height: 542px;
+      .changeBar {
+         display: flex;
+         position: relative;
+         .videoButton,
+         .likedButton {
+            font-family: SofiaPro, Arial, Tahoma, PingFangSC, sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            text-align: center;
+            color: rgba(22, 24, 35, 0.5);
+            width: 230px;
+            height: 44px;
+            line-height: 44px;
+            &:hover {
+               cursor: pointer;
+            }
+         }
+
+         .videoButton.active,
+         .likedButton.active {
+            color: rgba(22, 24, 35, 1);
+         }
+
+         .locker {
+            display: inline-block;
+            margin-right: 4px;
+         }
+         .videoButton_content,
+         .likedButton_content {
+            display: inline-block;
+         }
+      }
+      .slideBar {
+         position: absolute;
+         top: 100%;
+         height: 1px;
+         width: 460px;
+         background-color: rgba(22, 24, 35, 0.08);
+         .slider {
+            position: absolute;
+            top: -1px;
+            height: 2px;
+            width: 230px;
+            background-color: #161823;
+            transition: all ease-in-out 0.4s;
+         }
+         .slider.activeLeft {
+            transform: translate(0, 0);
+         }
+         .slider.activeRight {
+            transform: translate(100%, 0);
+         }
+      }
+      .videoButton {
+         &:hover ~ .slideBar > .slider {
+            transform: translate(0, 0);
+         }
+      }
+      .likedButton {
+         &:hover ~ .slideBar > .slider {
+            transform: translate(100%, 0);
+         }
+      }
+
+      //Main Content
+      .mainContent_noData {
+         height: 100%;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         .humanIcon {
+            color: rgba(176, 176, 180, 0.5);
+         }
+         .noData_mainTitle {
+            margin-top: 40px;
+            font-weight: bolder;
+            font-size: 23px;
+         }
+         .noData_subTitle {
+            font-weight: 400;
+            color: rgba(22, 24, 35, 0.75);
+            margin-top: 8px;
+            font-size: 16px;
+         }
+      }
+   }
+}
+
+.messageIcon {
+   width: 16px;
+   height: 16px;
+}

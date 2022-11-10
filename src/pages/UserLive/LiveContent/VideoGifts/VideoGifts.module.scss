@@ -1,0 +1,45 @@
+.videoGift_wrapper {
+   position: relative;
+   padding: 0 30px;
+   .videoGift {
+      overflow: hidden;
+      &::-webkit-scrollbar-thumb {
+         background-color: transparent;
+      }
+      display: flex;
+      .videoGift_group {
+         min-width: 903px;
+         display: flex;
+      }
+   }
+   .nextGifts,
+   .previousGifts {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      width: 30px;
+      height: 100%;
+      cursor: pointer;
+      border-radius: 5px;
+   }
+   .nextGifts {
+      right: 0;
+      &:hover {
+         background-color: rgba(22, 24, 35, 0.03);
+      }
+      .nextButton {
+         font-size: 18px;
+      }
+   }
+   .previousGifts {
+      left: 0;
+      &:hover {
+         background-color: rgba(22, 24, 35, 0.03);
+      }
+      .previousButton {
+         font-size: 18px;
+      }
+   }
+}

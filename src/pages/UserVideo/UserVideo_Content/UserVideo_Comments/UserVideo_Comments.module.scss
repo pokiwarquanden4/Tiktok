@@ -1,0 +1,84 @@
+.wrapper {
+   margin-bottom: 16px;
+   overflow-y: overlay;
+   .responses {
+      cursor: pointer;
+      display: inline-block;
+      margin-left: 50px;
+
+      &:hover .responses_expan {
+         text-decoration: underline;
+      }
+      .responses_expan {
+         display: inline-block;
+         color: rgba(22, 24, 35, 0.5);
+         font-size: 14px;
+         font-weight: bold;
+      }
+      .arrowIcon {
+         display: inline-block;
+         margin-left: 8px;
+         font-size: 12px;
+         color: rgba(22, 24, 35, 0.5);
+      }
+   }
+   .viewMore_wrapper {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      .viewMore {
+         display: inline-block;
+         cursor: pointer;
+         &:hover .viewMore_content {
+            text-decoration: underline;
+         }
+         margin-left: 100px;
+         .viewMore_content {
+            display: inline-block;
+            color: rgba(22, 24, 35, 0.5);
+            font-size: 14px;
+            font-weight: bold;
+         }
+         .arrowIcon {
+            margin-top: 4px;
+            display: inline-block;
+            margin-left: 8px;
+            font-size: 12px;
+            color: rgba(22, 24, 35, 0.5);
+         }
+      }
+      .hide {
+         display: inline-block;
+         cursor: pointer;
+         &:hover .hide_content {
+            text-decoration: underline;
+         }
+         .hide_content {
+            display: inline-block;
+            color: rgba(22, 24, 35, 0.5);
+            font-size: 14px;
+            font-weight: bold;
+         }
+         .arrowIcon {
+            margin-top: 4px;
+            display: inline-block;
+            margin-left: 8px;
+            font-size: 12px;
+            color: rgba(22, 24, 35, 0.5);
+            transform: rotate(-180deg);
+         }
+      }
+   }
+   .viewMore_wrapper::after {
+      content: '';
+      width: 35px;
+      height: 1px;
+      top: 0;
+      bottom: 0;
+      left: 53px;
+      transform: translateY(50%);
+      margin: auto 0;
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.1);
+   }
+}

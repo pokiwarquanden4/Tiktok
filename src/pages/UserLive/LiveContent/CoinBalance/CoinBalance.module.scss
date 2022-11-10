@@ -1,0 +1,26 @@
+.wrapper {
+   display: flex;
+   height: 54px;
+   margin: 0px 24px;
+   align-items: center;
+   border-top: 0.5px solid rgba(22, 24, 35, 0.12);
+   border-bottom: 0.5px solid rgba(22, 24, 35, 0.12);
+   .content {
+      font-size: 14px;
+      font-weight: bold;
+      color: rgba(22, 24, 35, 0.75);
+   }
+   .numberCoin {
+      margin-left: 10px;
+      font-weight: bold;
+      color: rgba(22, 24, 35, 0.75);
+   }
+   .coin {
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-bottom: 3px;
+   }
+   .button {
+      max-height: 30px;
+   }
+}

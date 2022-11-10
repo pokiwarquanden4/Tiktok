@@ -1,0 +1,29 @@
+.wrapper {
+   min-width: 98px;
+   width: 98px;
+   min-height: 86px;
+   height: 86px;
+   text-align: center;
+}
+.image {
+   width: 48px;
+   height: 48px;
+}
+.content {
+   .content_name {
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      font-weight: bolder;
+      text-overflow: ellipsis;
+      font-size: 12px;
+      line-height: 14px;
+      margin-bottom: 2px;
+   }
+   .content_coin {
+      text-align: center;
+      font-size: 10px;
+      line-height: 12px;
+      font-weight: 500;
+   }
+}

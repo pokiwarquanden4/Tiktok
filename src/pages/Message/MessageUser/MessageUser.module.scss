@@ -1,0 +1,58 @@
+.user {
+   .userInFo {
+      height: 72px;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 24px;
+      align-items: center;
+   }
+   .userImage {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 12px;
+   }
+   .userMessage {
+      flex: 1;
+      .userLastComment {
+         padding-top: 4px;
+         font-size: 14px;
+         line-height: 20px;
+         color: rgba(22, 24, 35, 0.75);
+         font-family: ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+      }
+      .userMainName {
+         font-size: 16px;
+         line-height: 22px;
+         min-height: 22px;
+         color: rgb(22, 24, 35);
+         max-width: var(--smallSize-width);
+         text-overflow: ellipsis;
+         overflow: hidden;
+         white-space: nowrap;
+         font-family: ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+         font-weight: 600;
+      }
+   }
+   .userSetting {
+      opacity: 0;
+      &:hover {
+         cursor: pointer;
+      }
+   }
+}
+
+.userActive {
+   background-color: #f1f1f1;
+   cursor: pointer;
+}
+
+.user:not(.userActive):hover {
+   background-color: rgba(22, 24, 35, 0.03);
+   cursor: pointer;
+}
+
+.user:hover .userSetting {
+   opacity: 1;
+}

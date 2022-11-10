@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { publicRoutes } from './pages/routes';
+import { DefaultLayout, HeaderOnly } from './Layout';
+import { Fragment } from 'react';
+import { FullScreenLayout } from './Layout/FullScreenLayout';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   return (
+      <Router>
+         <div className="App">
+            <Routes>
+               {publicRoutes.map((route, index) => {
+                  const Page = route.component;
+                  let Layout = HeaderOnly;
+
+                  switch (route.layout) {
+                     case null:
+                        Layout = Fragment;
+                        break;
+                     case HeaderOnly:
+                        Layout = route.layout;
+                        break;
+                     case FullScreenLayout:
+                        Layout = route.layout;
+                        break;
+                     default:
+                        Layout = DefaultLayout;
+                        break;
+                  }
+
+                  return (
+                     <Route
+                        key={index}
+                        path={route.path}
+                        element={
+                           <Layout>
+                              <Page></Page>
+                           </Layout>
+                        }
+                     ></Route>
+                  );
+               })}
+            </Routes>
+         </div>
+      </Router>
+   );
 }
 
 export default App;

@@ -1,0 +1,98 @@
+.wrapper {
+   margin-top: 35px;
+   margin-left: 30px;
+   margin-right: 35px;
+   display: flex;
+   justify-content: space-between;
+}
+
+.share {
+   display: flex;
+   align-items: center;
+   .shareIcon_wrapper {
+      display: flex;
+      align-items: center;
+      height: 100%;
+   }
+   .shareIcon {
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+   }
+   .shareIcon_wrapper + .shareIcon_wrapper {
+      margin-left: 6px;
+   }
+   .moreShare_wrapper {
+      height: 16px;
+      .moreShare {
+         cursor: pointer;
+         margin-left: 10px;
+      }
+   }
+}
+
+.userAction {
+   display: flex;
+   align-items: center;
+
+   .userHeart,
+   .userComment {
+      display: flex;
+      align-items: center;
+   }
+
+   .heartIcon {
+      &:hover {
+         background-color: rgba(22, 24, 35, 0.1);
+         cursor: pointer;
+      }
+   }
+   .commentIcon {
+      margin-left: 25px;
+   }
+
+   .heartIcon,
+   .commentIcon {
+      margin-top: 0px;
+      font-size: 18px;
+      padding: 8px;
+      border-radius: 50%;
+      background-color: #f1f1f2;
+      transition: background-color ease-in-out 200ms;
+   }
+
+   .numberHeart,
+   .numberComment {
+      margin-left: 6px;
+      font-size: 12px;
+
+      width: 100%;
+      text-align: center;
+   }
+}
+
+.copyLink {
+   width: 470px;
+   margin-top: 20px;
+   margin-left: 35px;
+   display: flex;
+
+   background-color: #f1f1f2;
+   border-radius: 4px;
+   .link {
+      padding: 10px 15px;
+      flex: 1;
+      font-size: 14px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+   }
+
+   .copyButton {
+      height: 34px;
+      padding: 7px 18px;
+      &:hover {
+         background-color: #f8f8f8;
+      }
+   }
+}

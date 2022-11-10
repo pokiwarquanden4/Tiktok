@@ -1,0 +1,86 @@
+.yourMessageWrapper {
+   margin: 8px 12px;
+
+   display: flex;
+
+   .settingIconWrapper {
+      display: none;
+
+      &:hover {
+         display: block;
+         cursor: pointer;
+      }
+   }
+
+   .settingIconWrapper_Active {
+      display: block;
+   }
+
+   .settingIcon {
+      margin-top: 6px;
+      margin-right: 2px;
+      margin-left: 2px;
+   }
+   .yourMessageAvatar {
+      margin-top: 3px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+   }
+   .yourMessage {
+      position: relative;
+      margin-right: 8px;
+      margin-left: 8px;
+      padding: 7px 12px;
+      background-color: #f1f1f2;
+      max-width: 360px;
+      border-radius: 8px;
+      border: 1px solid rgba(22, 24, 35, 0.12);
+      word-break: break-word;
+      font-family: ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+      font-size: 16px;
+      line-height: 22px;
+
+      .yourMessageTitle {
+      }
+   }
+}
+
+.time {
+   padding-top: 20px;
+   margin-bottom: 8px;
+   color: rgba(22, 24, 35, 0.5);
+   font-family: ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+   font-size: 12px;
+   line-height: 15px;
+   text-align: center;
+}
+
+.yourMessage:hover ~ .settingIconWrapper {
+   display: block;
+}
+
+.yourMessage::before,
+.yourMessage::after {
+   content: '';
+   position: absolute;
+   display: block;
+   background-color: transparent;
+   width: 20px;
+   height: 40px;
+}
+.yourMessage::before {
+   right: -16px;
+   top: 0;
+}
+.yourMessage::after {
+   left: -16px;
+   top: 0;
+}
+
+.settingIconTippy {
+   background-color: rebeccapurple;
+   width: 165px;
+   height: 41px;
+}

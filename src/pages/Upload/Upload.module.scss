@@ -1,0 +1,82 @@
+.wrapper {
+   width: 1100px;
+   height: 900px;
+   margin: 0 auto;
+   padding: 16px 0;
+   .container {
+      display: flex;
+      flex-direction: column;
+      max-height: none;
+      height: 100%;
+      padding: 24px 56px;
+
+      .header {
+         font-size: 25px;
+         color: #161823;
+      }
+      .subHeader {
+         margin-top: 10px;
+         color: #16182380;
+         font-weight: 500;
+         font-size: 18px;
+      }
+   }
+}
+
+.main {
+   display: flex;
+   margin-top: 24px;
+   margin-bottom: 130px;
+   .uploadVideo {
+      .uploadZone {
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         width: 260px;
+         height: 458px;
+         margin-top: 24px;
+         border: #16182380 solid 1px;
+         border: 2px dashed rgba(22, 24, 35, 0.2);
+         border-radius: 8px;
+         padding: 0 35px;
+         .uploadIcon {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+         }
+         .uploadTitle {
+            text-align: center;
+            font-size: 18px;
+            color: #161823;
+            font-weight: 600;
+         }
+         .uploadSubTitle,
+         .uploadType,
+         .uploadResolution,
+         .uploadLimitTime,
+         .uploadStorage {
+            margin-top: 13px;
+            color: #16182380;
+            text-align: center;
+            font-size: 14px;
+         }
+         .uploadSubTitle {
+            margin-bottom: 15px;
+         }
+
+         .uploadButton {
+            margin-top: 30px;
+         }
+
+         &:hover {
+            cursor: pointer;
+            border-color: var(--main-color);
+            background-color: #f8f8f8;
+         }
+      }
+   }
+   .info {
+      width: 100%;
+      margin-left: 25px;
+   }
+}

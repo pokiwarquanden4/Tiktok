@@ -1,0 +1,110 @@
+@import 'normalize.css';
+:root {
+   //DefaultLayout
+   --liveChat-width: 341px;
+   --defaultLayout-header-heght: 60px;
+   --defaultLayout-header-width: 1150px;
+   --main-color: #f23156;
+   --font-family: 'ProximaNova';
+   --font-family-bold: 'ProximaNova_bold';
+
+   //Side Bar layout
+   --smallSize-width: 232px;
+}
+
+* {
+   box-sizing: border-box;
+}
+
+html {
+}
+body {
+   font-family: var(--font-family), sans-serif;
+   margin: 0;
+   text-rendering: optimizeLegibility;
+   overflow-y: overlay;
+}
+
+button,
+input {
+   border: none;
+   outline: none;
+}
+
+button {
+   cursor: pointer;
+   background-color: transparent;
+}
+
+a {
+   text-decoration: none;
+   color: black;
+}
+
+p,
+h1,
+h2,
+h3,
+h4 {
+   margin: 0;
+}
+
+body {
+   .tippy-box {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 22px;
+      height: 38px;
+      border-radius: 8px;
+      background-color: rgba(84, 84, 84, 0.92);
+      overflow-y: overlay;
+   }
+
+   .tippy-content {
+      padding: 8px 9px;
+   }
+   .tippy-arrow {
+      color: #333;
+   }
+}
+
+//Fonts
+@font-face {
+   font-family: ProximaNova;
+   src: url('../../Asset/Fonts/Proxima-Nova-Regular.woff2');
+   font-weight: 400;
+}
+
+@font-face {
+   font-family: ProximaNova_bold;
+   src: url('../../Asset/Fonts/ProximaNova-Semibold.woff2');
+   font-weight: 600;
+}
+
+//ScrollBar CSS
+html *::-webkit-scrollbar {
+   border-radius: 0;
+   width: 8px;
+}
+html *::-webkit-scrollbar {
+   border-radius: 0;
+   width: 8px;
+}
+html *::-webkit-scrollbar-thumb {
+   border-radius: 4px;
+   background-color: rgba(0, 0, 0, 0.15);
+}
+html *::-webkit-scrollbar-thumb {
+   border-radius: 4px;
+   background-color: rgba(0, 0, 0, 0.15);
+}
+html *::-webkit-scrollbar-track {
+   border-radius: 0;
+   background-color: rgba(0, 0, 0, 0);
+}
+html *::-webkit-scrollbar-track {
+   border-radius: 0;
+   background-color: rgba(0, 0, 0, 0);
+}
+
+//Animation

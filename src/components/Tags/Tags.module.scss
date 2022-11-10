@@ -1,0 +1,32 @@
+.discover {
+   display: inline-flex;
+   align-items: center;
+   border-radius: 20px;
+   border: 1px solid rgba(22, 24, 35, 0.2);
+   padding: 3px 10px;
+   background-color: #ffffff;
+   margin-bottom: 12px;
+   margin-right: 8px;
+
+   &:hover {
+      background-color: rgba(22, 24, 35, 0.03);
+   }
+}
+.icon + .content {
+   padding-left: 6px;
+}
+.content {
+   color: rgba(22, 24, 35, 0.75);
+   font-family: 'IBM Plex Sans', ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+   font-weight: 400;
+   font-size: 14px;
+   font-weight: bolder;
+}
+
+.blackWhite {
+   background-color: black !important;
+   transition: all 300ms ease 0s;
+   .content {
+      color: #fff !important;
+   }
+}

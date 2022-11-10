@@ -1,0 +1,86 @@
+//Tippy
+.recommentTippy {
+   width: 320px;
+
+   .wrapper {
+      padding: 20px;
+   }
+
+   .tippyHeader {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+
+      .tippyButton {
+         height: 34px;
+      }
+
+      img {
+         width: 44px;
+         height: 44px;
+         border-radius: 50%;
+         object-fit: cover;
+         margin-right: 12px;
+      }
+   }
+
+   .tippyContent {
+      .tippy_main__Name {
+         color: rgb(22, 24, 35);
+         font-family: 'IBM Plex Sans', SofiaPro, Arial, Tahoma, PingFangSC, sans-serif;
+         font-weight: 700;
+         font-size: 18px;
+         line-height: 22px;
+      }
+      .tippy_checkIcon {
+         font-size: 15px;
+         color: rgb(32, 213, 236);
+         margin-left: 4px;
+      }
+      .tippy_sub__Name {
+         color: rgb(22, 24, 35);
+         font-family: 'IBM Plex Sans', ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+         font-weight: 600;
+         font-size: 14px;
+         line-height: 20px;
+      }
+   }
+   .tippyFollow {
+      margin-top: 8px;
+      display: flex;
+
+      .tippy_follow {
+         display: flex;
+
+         .tippy_number_follow {
+            font-weight: 700;
+            font-size: 17px;
+            line-height: 20px;
+         }
+         .tippy_follower {
+            margin-left: 5px;
+            color: rgba(22, 24, 35, 0.75);
+            font-size: 17px;
+            line-height: 20px;
+            display: inline-block;
+         }
+      }
+      .tippy_like {
+         margin-left: 10px;
+         display: flex;
+
+         .tippy_number_like {
+            font-weight: 700;
+            font-size: 17px;
+            line-height: 20px;
+         }
+         .tippy_liker {
+            margin-left: 5px;
+            color: rgba(22, 24, 35, 0.75);
+            font-size: 17px;
+            line-height: 20px;
+            display: inline-block;
+         }
+      }
+   }
+}

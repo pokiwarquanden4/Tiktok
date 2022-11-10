@@ -1,0 +1,116 @@
+.wrapper {
+   margin-left: var(--smallSize-width);
+   max-width: calc(100vw - var(--smallSize-width) - var(--liveChat-width));
+   transition: all 0.2s linear;
+   .header {
+      padding: 12px 15px;
+      display: flex;
+      justify-content: space-between;
+      border-right: 1px solid rgba(34, 90, 89, 0.2);
+      border-bottom: 1px solid rgba(34, 90, 89, 0.2);
+      border-left: 1px solid rgba(34, 90, 89, 0.2);
+      .headerMain {
+         display: flex;
+         .headerMain_avatar {
+            width: 41px;
+            height: 41px;
+            border-radius: 50%;
+            object-fit: cover;
+         }
+         .headerMain_content {
+            margin-left: 9px;
+            display: flex;
+            flex-direction: column;
+            .userName {
+               display: flex;
+               align-items: center;
+               margin-bottom: 3px;
+               .userName_main {
+                  font-weight: bolder;
+               }
+               .userName_sub {
+                  color: rgba(22, 24, 35, 0.75);
+                  font-size: 14px;
+                  margin-left: 4px;
+                  margin-top: 2px;
+               }
+            }
+            .userSubName {
+               display: flex;
+               align-items: center;
+               .userSubName_content {
+                  color: rgba(22, 24, 35, 0.5);
+                  font-size: 13px;
+                  font-weight: bold;
+               }
+               .viewer {
+                  display: flex;
+                  margin-left: 10px;
+                  .viewer_icon {
+                     width: 20px;
+                     height: 20px;
+                  }
+                  .viewer_number {
+                     margin-left: 4px;
+                     margin-top: 2px;
+                     font-weight: 500;
+                  }
+               }
+            }
+         }
+      }
+      .headerSub {
+         display: flex;
+         align-items: center;
+         .share {
+            cursor: pointer;
+            border: 1px solid rgba(22, 24, 35, 0.12);
+            border-radius: 4px;
+            width: 34px;
+            height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .shareIcon {
+               width: 20px;
+               height: 20px;
+            }
+         }
+
+         .moreOption {
+            cursor: pointer;
+            margin: 0 4px;
+            border: 1px solid rgba(22, 24, 35, 0.12);
+            border-radius: 4px;
+            width: 34px;
+            height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .moreOptionIcon {
+               width: 22px;
+               height: 22px;
+            }
+         }
+         .followButton {
+            height: 34px;
+         }
+         .closingIcon {
+            cursor: pointer;
+            margin-left: 18px;
+            transform: rotate(-180deg);
+         }
+      }
+   }
+   .content {
+      .video {
+         width: 100%;
+      }
+      .liveRecommentVideo {
+         padding-top: 30px;
+      }
+   }
+}
+.fullScreen {
+   max-width: calc(100vw - var(--smallSize-width)) !important;
+}

@@ -1,0 +1,14 @@
+.content {
+   padding-top: 32px;
+   flex: 1;
+   display: flex;
+   flex-direction: column;
+   height: 100vh;
+}
+.comment_wrapper {
+   margin-top: 15px;
+   border-top: 1px solid rgba(22, 24, 35, 0.2);
+   border-bottom: 1px solid rgba(22, 24, 35, 0.2);
+   overflow-y: overlay;
+   padding: 24px 32px;
+}

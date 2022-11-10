@@ -1,0 +1,62 @@
+.wrapper {
+   background-color: white;
+   position: fixed;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   z-index: 10;
+   width: 100%;
+   height: var(--defaultLayout-header-heght);
+   box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
+}
+.fullScreen .inner {
+   width: 100%;
+}
+.inner {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   height: 100%;
+   width: var(--defaultLayout-header-width);
+   padding: 0 20px;
+}
+
+.actions {
+   display: flex;
+   align-items: center;
+}
+
+.menuBar {
+   background-color: transparent;
+   padding: 8px;
+}
+
+.actionBar {
+   font-size: 20px;
+   margin-left: 24px;
+}
+
+.uploadButton {
+   font-size: 22px;
+   height: 30px;
+   color: #161823;
+   padding: 4px 12px;
+}
+.messageButton {
+   font-size: 22px;
+   height: 30px;
+   color: #161823;
+   padding: 4px 12px;
+}
+
+.userAvatar {
+   height: 32px;
+   width: 32px;
+   object-fit: cover;
+   margin: 4px 12px;
+   border-radius: 50%;
+   cursor: pointer;
+}
+.fixBugTippy {
+   height: 35px;
+}
