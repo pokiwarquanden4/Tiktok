@@ -1,7 +1,12 @@
-import { useEffect, useRef } from 'react';
+import { useCallback, useRef } from 'react';
 import styles from './VideoPreview.module.scss';
+import { userVideoLink } from 'api';
 
-function Video({ data, startCurrentPlay, currentId, stopCurrentPlay }) {
+function VideoPreview({ data, startCurrentPlay, currentId, stopCurrentPlay }) {
+   const getVideoLink = useCallback((name) => {
+      return userVideoLink(data.nickName + '/MainVideo/' + name);
+   });
+
    const videoRef = useRef();
    return (
       <div className={styles.videoWrapper}>
@@ -9,7 +14,7 @@ function Video({ data, startCurrentPlay, currentId, stopCurrentPlay }) {
             <video
                ref={videoRef}
                className={styles.video}
-               src={data.link}
+               src={getVideoLink(data.video)}
                poster={data.img}
                loop
                muted
@@ -26,4 +31,4 @@ function Video({ data, startCurrentPlay, currentId, stopCurrentPlay }) {
    );
 }
 
-export default Video;
+export default VideoPreview;

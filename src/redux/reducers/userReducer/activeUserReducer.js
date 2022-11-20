@@ -36,6 +36,38 @@ export default function activeUserReducers(state = INIT_STATE.activeUser, action
             ...state,
             isLoading: true,
          };
+      case getType(activeUser.getUploadTempVideoRequest):
+         return {
+            ...state,
+            isLoading: true,
+         };
+      case getType(activeUser.getUploadTempVideoSuccess):
+         return {
+            ...state,
+            isLoading: false,
+            data: { ...state.data, uploadTempVideo: { ...state.data.uploadTempVideo, video: action.payload } },
+         };
+      case getType(activeUser.getUploadTempVideoFailure):
+         return {
+            ...state,
+            isLoading: true,
+         };
+      case getType(activeUser.deleteUploadTempVideoRequest):
+         return {
+            ...state,
+            isLoading: true,
+         };
+      case getType(activeUser.deleteUploadTempVideoSuccess):
+         return {
+            ...state,
+            isLoading: false,
+            data: { ...state.data, uploadTempVideo: { ...state.data.uploadTempVideo, video: null } },
+         };
+      case getType(activeUser.deleteUploadTempVideoFailure):
+         return {
+            ...state,
+            isLoading: true,
+         };
 
       default:
          return state;

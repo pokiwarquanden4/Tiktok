@@ -23,8 +23,4 @@ export const INIT_STATE = {
       data: [],
       isLoading: false,
    },
-   uploadTemVideo: {
-      data: {},
-      isLoading: false,
-   },
 };

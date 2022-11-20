@@ -1,17 +1,17 @@
 import styles from './UserVideo_Video.module.scss';
 import { DownArrowButton, FlagIcon, XButton } from 'components/Icon';
-import LTKH from 'src/components/Video/LTKH.mp4';
 import Image from 'src/components/images';
 import { useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faVolumeHigh, faVolumeXmark } from '@fortawesome/free-solid-svg-icons';
 
-function UserVideo_Video() {
+function UserVideo_Video({ videoLink }) {
    //Page Navi
    const navigate = useNavigate();
    //Video
    const videoRef = useRef();
+
    //Video Process
    const range = useRef();
    const videoCurrentProcess = useRef();
@@ -92,7 +92,7 @@ function UserVideo_Video() {
    return (
       <div className={styles.video_wrapper}>
          <div className={styles.videoZone}>
-            <video className={styles.video} ref={videoRef} loop muted src={LTKH}></video>
+            <video className={styles.video} ref={videoRef} loop muted src={videoLink}></video>
             <div className={styles.procession}>
                <div className={styles.processBar_Container}>
                   <div className={styles.processBarAll}>

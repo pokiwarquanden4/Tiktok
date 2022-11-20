@@ -12,7 +12,7 @@ function AccountPreview({ data }) {
       if (user.avatar === undefined) {
          return;
       }
-      return userAvatar(user.avatar);
+      return userAvatar(user.nickName + '/' + user.avatar);
    };
 
    return (

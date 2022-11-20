@@ -5,9 +5,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle, faHeart, faCommentDots, faShare } from '@fortawesome/free-solid-svg-icons';
 import Image from '../images';
 import { Video } from 'components/Video';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
-function ListVideo({ followed }) {
+import { userAvatar } from 'api';
+
+function ListVideo({ followed, video, user }) {
    const [autoPlay, setAutoPlay] = useState(false);
    const listRef = useRef();
    useEffect(() => {
@@ -32,16 +34,20 @@ function ListVideo({ followed }) {
       };
    }, []);
 
+   const getAvatar = useCallback((user) => {
+      return userAvatar(user.nickName + '/' + user.avatar);
+   });
+
    return (
       <div ref={listRef} className={styles.lists}>
-         <Image src="/" className={styles.avatar} alt="fullname"></Image>
+         <Image src={getAvatar(user)} className={styles.avatar} alt="fullname"></Image>
 
          <div className={styles.main}>
             <div className={styles.content}>
                <div className={styles.contentTitle}>
                   <div className={styles.name_info}>
-                     <div className={styles.main_Name}>Quang</div>
-                     <div className={styles.sub_Name}>TMQ</div>
+                     <div className={styles.main_Name}>{user.nickName}</div>
+                     <div className={styles.sub_Name}>{user.full_name}</div>
                      <FontAwesomeIcon className={styles.check} icon={faCheckCircle}></FontAwesomeIcon>
                   </div>
                   <div className={styles.more_info}>
@@ -71,19 +77,21 @@ function ListVideo({ followed }) {
                )}
             </div>
             <div className={`${styles.video_Wrapper} ${styles.smallVideo}`}>
-               <Video smallVideo autoPlay={autoPlay}></Video>
+               <div className={styles.videoSize}>
+                  <Video autoPlay={autoPlay} video={video} user={user}></Video>
+               </div>
                <div className={styles.userAction}>
                   <div className={styles.userHeart}>
                      <FontAwesomeIcon className={styles.heartIcon} icon={faHeart}></FontAwesomeIcon>
-                     <strong className={styles.numberHeart}>100k</strong>
+                     <strong className={styles.numberHeart}>{video.liker.length}</strong>
                   </div>
                   <div className={styles.userComment}>
                      <FontAwesomeIcon className={styles.commentIcon} icon={faCommentDots}></FontAwesomeIcon>
-                     <strong className={styles.numberComment}>99k</strong>
+                     <strong className={styles.numberComment}>{video.comment.length}</strong>
                   </div>
                   <div className={styles.userShare}>
                      <FontAwesomeIcon className={styles.shareIcon} icon={faShare}></FontAwesomeIcon>
-                     <strong className={styles.numberShare}>10</strong>
+                     <strong className={styles.numberShare}>0</strong>
                   </div>
                </div>
             </div>

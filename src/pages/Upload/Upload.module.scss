@@ -75,6 +75,44 @@
          }
       }
    }
+   .videoWrapper {
+      .videoSize {
+         min-width: 260px;
+         height: 485px;
+      }
+      .changeVideo{
+         display: flex;
+         align-items: center;
+         width: 100%;
+         padding: 0 13px;
+         height: 45px;
+         margin-top: 20px;
+         border: 1px solid rgba(22, 24, 35, 0.12);
+         border-radius: 12px;
+         .checkIcon{
+            font-size: 14px;
+            margin-right: 4px;
+         }
+         .changeVideo_title{
+            flex: 1;
+            font-size: 13px;
+            display: -webkit-box;
+            overflow: hidden;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+         } 
+         .changeVideo_button{
+            font-weight: bolder;
+            font-size: 13px;
+    
+            &:hover {
+               text-decoration: underline;
+               cursor: pointer;
+            }
+         }   
+      }
+   }
+   
    .info {
       width: 100%;
       margin-left: 25px;

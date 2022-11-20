@@ -10,16 +10,15 @@ import {
    recommendUser,
    followingUser,
 } from 'redux/actions/usersActions/usersActions';
-import { uploadTemVideo } from 'redux/actions/usersActions/uploadVideoActions';
 import {
    fetchUsers,
    fetchUsersByName,
    createUserAPI,
    activeAccount,
    recommendUserAPI,
-   followingUserAPI,
    uploadVideoAPI,
-   uploadTemVideoAPI,
+   uploadTempVideoAPI,
+   deleteUploadTempVideoAPI,
 } from 'api';
 
 function* fetchUserSaga(action) {
@@ -65,20 +64,20 @@ function* recommendUserSaga(action) {
       yield put(recommendUser.recommendUserSuccess(err));
    }
 }
-function* followingUserSaga(action) {
+function* uploadTempVideoSaga(action) {
    try {
-      const user = yield call(followingUserAPI, action.payload);
-      yield put(followingUser.followingUserSuccess(user.data));
+      const user = yield call(uploadTempVideoAPI, action.payload);
+      yield put(activeUser.getUploadTempVideoSuccess(user.data));
    } catch (err) {
-      yield put(followingUser.followingUserFailure(err));
+      yield put(activeUser.getUploadTempVideoFailure(err));
    }
 }
-function* uploadTemVideoSaga(action) {
+function* deleteUploadTempVideoSaga(action) {
    try {
-      const user = yield call(uploadTemVideoAPI, action.payload);
-      yield put(uploadTemVideo.getUploadTemVideoSuccess(user.data));
+      const user = yield call(deleteUploadTempVideoAPI, action.payload);
+      yield put(activeUser.deleteUploadTempVideoSuccess(user.data));
    } catch (err) {
-      yield put(uploadTemVideo.getUploadTemVideoFailure(err));
+      yield put(activeUser.deleteUploadTempVideoFailure(err));
    }
 }
 function* uploadVideo(action) {
@@ -97,9 +96,9 @@ function* mySaga() {
    yield takeLatest(createUser.createUserRequest, createUserSaga);
    yield takeLatest(activeUser.activeUserRequest, activeUserSaga);
    yield takeLatest(recommendUser.recommendUserRequest, recommendUserSaga);
-   yield takeLatest(followingUser.followingUserRequest, followingUserSaga);
-   yield takeLatest(uploadTemVideo.getUploadTemVideoRequest, uploadTemVideoSaga);
+   yield takeLatest(activeUser.getUploadTempVideoRequest, uploadTempVideoSaga);
    yield takeLatest(activeUser.getUploadVideoRequest, uploadVideo);
+   yield takeLatest(activeUser.deleteUploadTempVideoRequest, deleteUploadTempVideoSaga);
 }
 
 export default mySaga;

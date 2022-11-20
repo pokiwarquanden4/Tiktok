@@ -10,6 +10,9 @@ export const allUserSelector = (state) => {
 export const activeUserSelector = (state) => {
    return state.activeUserReducers.data;
 };
+export const activeUserLoadingSelector = (state) => {
+   return state.activeUserReducers.isLoading;
+};
 //Người dùng được khuyến nghị
 export const recommendUserSelector = (state) => {
    return state.recommendUserReducer.data;

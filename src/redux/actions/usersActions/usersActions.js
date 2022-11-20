@@ -22,6 +22,14 @@ export const createUser = createActions({
    createUserFailure: (err) => err,
 });
 export const activeUser = createActions({
+   getUploadTempVideoRequest: (payload) => payload,
+   getUploadTempVideoSuccess: (payload) => payload,
+   getUploadTempVideoFailure: (err) => err,
+
+   deleteUploadTempVideoRequest: (payload) => payload,
+   deleteUploadTempVideoSuccess: (payload) => payload,
+   deleteUploadTempVideoFailure: (err) => err,
+
    getUploadVideoRequest: (payload) => payload,
    getUploadVideoSuccess: (payload) => payload,
    getUploadVideoFailure: (err) => err,

@@ -51,26 +51,43 @@ function LoginUser({ setChildrenValue }) {
       'December',
    ];
 
-   const dateOfMonth = {
-      January: 31,
-      February: 29,
-      March: 31,
-      April: 30,
-      May: 31,
-      June: 30,
-      July: 31,
-      August: 31,
-      September: 30,
-      October: 31,
-      November: 30,
-      December: 31,
+   const getMonth = (month) => {
+      switch (month) {
+         case 'January':
+            return 0;
+         case 'February':
+            return 1;
+         case 'March':
+            return 2;
+         case 'April':
+            return 3;
+         case 'May':
+            return 4;
+         case 'June':
+            return 5;
+         case 'July':
+            return 6;
+         case 'August':
+            return 7;
+         case 'September':
+            return 8;
+         case 'October':
+            return 9;
+         case 'November':
+            return 10;
+         case 'December':
+            return 11;
+         default:
+            return null;
+      }
    };
+
    const getDayOfMonth = (month) => {
       switch (month) {
          case 'January':
             return Array.from({ length: 31 }, (_, i) => i + 1);
          case 'February':
-            return Array.from({ length: 29 }, (_, i) => i + 1);
+            return Array.from({ length: yearValue % 4 === 0 ? 30 : 29 }, (_, i) => i + 1);
          case 'March':
             return Array.from({ length: 31 }, (_, i) => i + 1);
          case 'April':
@@ -112,7 +129,7 @@ function LoginUser({ setChildrenValue }) {
       formData.append('full_name', fullNameRef.current.value);
       formData.append('last_name', lastNameRef.current.value);
       formData.append('password', passwordRef.current.value);
-      formData.append('dateOfBirth', dayValue + '/' + monthValue + '/' + yearValue);
+      formData.append('dateOfBirth', yearValue + '-' + (getMonth(monthValue) + 1) + '-' + dayValue);
 
       dispatch(createUser.createUserRequest(formData));
 

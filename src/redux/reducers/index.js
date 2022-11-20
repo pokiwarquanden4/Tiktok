@@ -5,7 +5,6 @@ import allUserReducers from './userReducer/allUserReducer';
 import activeUserReducers from './userReducer/activeUserReducer';
 import recommendUserReducer from './userReducer/recommendUserReducer';
 import followingUserReducer from './userReducer/followingUserReducer';
-import uploadTemVideoReducer from './userReducer/uploadVideoReducer';
 
 export default combineReducers({
    getUserByNameReducers,
@@ -14,5 +13,4 @@ export default combineReducers({
    activeUserReducers,
    recommendUserReducer,
    followingUserReducer,
-   uploadTemVideoReducer,
 });

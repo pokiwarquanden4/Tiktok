@@ -75,11 +75,14 @@ function Header({ fullScreen }) {
                   active: false,
                }),
             );
+
             setActiveAccount({
                nickName: user.nickName,
                password: user.password,
                active: false,
             });
+
+            localStorage.removeItem('nickName');
             setMenu(MenuItem);
             setLogin(false);
          default:
@@ -102,7 +105,7 @@ function Header({ fullScreen }) {
       if (user.avatar === undefined) {
          return;
       }
-      return userAvatar(user.avatar);
+      return userAvatar(user.nickName + '/' + user.avatar);
    });
 
    return (

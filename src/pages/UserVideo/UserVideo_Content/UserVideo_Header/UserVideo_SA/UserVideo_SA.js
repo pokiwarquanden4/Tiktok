@@ -5,8 +5,11 @@ import { Link, FaceBook, WhatsApp, Twitter, Path, LinkedIn, Telegram, Email, Lin
 import config from 'config';
 import Tippy from '@tippyjs/react';
 import Menu from 'components/Poper/Menu';
+import { useRef } from 'react';
 
-function UserVideo_SA() {
+function UserVideo_SA({ comment, liker }) {
+   const copyPathRef = useRef();
+
    const shareMenu = [
       { icon: <LinkedIn></LinkedIn>, title: 'Share to Linkedln', to: config.routes.home },
       { icon: <Telegram></Telegram>, title: 'Share to Telegram', to: config.routes.home },
@@ -20,35 +23,35 @@ function UserVideo_SA() {
             <div className={styles.userAction}>
                <div className={styles.userHeart}>
                   <FontAwesomeIcon className={styles.heartIcon} icon={faHeart}></FontAwesomeIcon>
-                  <strong className={styles.numberHeart}>100k</strong>
+                  <strong className={styles.numberHeart}>{liker}</strong>
                </div>
                <div className={styles.userComment}>
                   <FontAwesomeIcon className={styles.commentIcon} icon={faCommentDots}></FontAwesomeIcon>
-                  <strong className={styles.numberComment}>99k</strong>
+                  <strong className={styles.numberComment}>{comment}</strong>
                </div>
             </div>
             <div className={styles.share}>
-               <Tippy offset={[0, -1]} content="Hello">
+               <Tippy offset={[0, -1]} content="Embed">
                   <span className={styles.shareIcon_wrapper}>
                      <Link className={styles.shareIcon}></Link>
                   </span>
                </Tippy>
-               <Tippy offset={[0, -1]} content="Hello">
+               <Tippy offset={[0, -1]} content="Send To Friends">
                   <span className={styles.shareIcon_wrapper}>
                      <Path className={styles.shareIcon}></Path>
                   </span>
                </Tippy>
-               <Tippy offset={[0, -1]} content="Hello">
+               <Tippy offset={[0, -1]} content="Share To Facebook">
                   <span className={styles.shareIcon_wrapper}>
                      <FaceBook className={styles.shareIcon}></FaceBook>
                   </span>
                </Tippy>
-               <Tippy offset={[0, -1]} content="Hello">
+               <Tippy offset={[0, -1]} content="Share To WhatsApp">
                   <span className={styles.shareIcon_wrapper}>
                      <WhatsApp className={styles.shareIcon}></WhatsApp>
                   </span>
                </Tippy>
-               <Tippy offset={[0, -1]} content="Hello">
+               <Tippy offset={[0, -1]} content="Share To Twitter">
                   <span className={styles.shareIcon_wrapper}>
                      <Twitter className={styles.shareIcon}></Twitter>
                   </span>
@@ -61,8 +64,17 @@ function UserVideo_SA() {
             </div>
          </div>
          <div className={styles.copyLink}>
-            <div className={styles.link}>{window.location.href}dddddddđsfsdfsdfsdfsdfsfsdfsdfsdfsdf</div>
-            <button className={styles.copyButton}>Copy Link</button>
+            <div className={styles.link} ref={copyPathRef}>
+               {window.location.href}
+            </div>
+            <button
+               className={styles.copyButton}
+               onClick={() => {
+                  navigator.clipboard.writeText(copyPathRef.current.innerHTML);
+               }}
+            >
+               Copy Link
+            </button>
          </div>
       </div>
    );

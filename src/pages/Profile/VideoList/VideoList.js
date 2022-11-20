@@ -1,36 +1,49 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './VideoList.module.scss';
-import Video from './VideoPreview/VideoPreview';
+import VideoPreview from './VideoPreview/VideoPreview';
 import { Grid } from 'components/Grid';
+import { getVideosByNickNameAPI } from 'api';
+import { LoadingAnimation } from 'components/LoadingAnimation';
 
-function VideoList({ data }) {
+function VideoList({ nickName }) {
+   const [listVideo, setListVideo] = useState();
    const [currentId, setCurrentId] = useState();
    const [currentPlay, setCurrentPlay] = useState();
+
+   useEffect(() => {
+      getVideosByNickNameAPI(nickName).then((result) => {
+         setListVideo(result.data);
+      });
+   }, []);
    return (
       <Grid className={styles.mainContent} minWidth="180px" numberColumn={6} colGap="15px" rowGap="20px">
-         {data.map((item) => {
-            return (
-               <Video
-                  data={item}
-                  key={item.id}
-                  currentId={currentId}
-                  startCurrentPlay={(ref, id) => {
-                     setCurrentPlay(ref);
-                     setCurrentId(id);
-                     ref.current.play();
-                  }}
-                  stopCurrentPlay={(ref) => {
-                     try {
-                        if (ref !== currentPlay) {
-                           currentPlay.current.load();
+         {listVideo ? (
+            listVideo.map((item) => {
+               return (
+                  <VideoPreview
+                     data={item}
+                     key={item._id}
+                     currentId={currentId}
+                     startCurrentPlay={(ref, id) => {
+                        setCurrentPlay(ref);
+                        setCurrentId(id);
+                        ref.current.play();
+                     }}
+                     stopCurrentPlay={(ref) => {
+                        try {
+                           if (ref !== currentPlay) {
+                              currentPlay.current.load();
+                           }
+                        } catch (err) {
+                           //Do nothing
                         }
-                     } catch (err) {
-                        //Do nothing
-                     }
-                  }}
-               ></Video>
-            );
-         })}
+                     }}
+                  ></VideoPreview>
+               );
+            })
+         ) : (
+            <LoadingAnimation></LoadingAnimation>
+         )}
       </Grid>
    );
 }

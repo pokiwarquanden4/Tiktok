@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+
 .caption {
    .caption_header {
       display: flex;
@@ -19,12 +21,35 @@
       border-radius: 4px;
       display: flex;
       align-items: center;
-      .caption_Input {
+      padding: 14px 15px;
+      height: 42px;
+      cursor: text;
+      .inputWrapper {
          flex: 1;
-         padding: 14px 15px;
-         font-size: 16px;
-         height: 42px;
+         display: flex;
+         overflow-x: hidden;
+         width: 612px;
+         .tag, .text, .caption_Input{
+            font-family: 'Space Mono', monospace;
+         }
+         .tag{
+            line-height: 26px;
+            font-size: 16px;
+            color: var(--main-color);
+            margin: 0 3px;
+         }
+         .text {
+            line-height: 26px;
+            font-size: 16px;
+            background-color: #fff;
+         }
+         .caption_Input {
+            font-size: 16px;
+            cursor: text;
+            background-color: #fff;
+         }
       }
+      
       .caption_tags {
          margin-right: 10px;
          &:hover {
@@ -47,6 +72,7 @@
          }
       }
       .caption_list {
+         z-index: 10;
          overflow-y: auto;
          position: absolute;
          top: 105%;

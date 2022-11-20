@@ -22,9 +22,7 @@ function SideBar({ smallSize, liveAction, className, noHoverAction }) {
    const listUsers = useSelector(recommendUserSelector);
 
    useEffect(() => {
-      console.log(listUsers);
       dispatch(recommendUser.recommendUserRequest());
-      console.log(listUsers);
    }, [dispatch]);
 
    const discover = [

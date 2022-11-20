@@ -1,14 +1,15 @@
+/* eslint-disable react/jsx-pascal-case */
 import styles from './UserVideo_Comments.module.scss';
 import UserVideo_Comment from './UserVideo_Comment/UserVideo_Comment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { Fragment, useState } from 'react';
-function UserVideo_Comments() {
+function UserVideo_Comments({ comments, setReplyTo }) {
    const [currentShow, setCurrentShow] = useState(0);
 
    return (
       <div className={styles.wrapper}>
-         <UserVideo_Comment></UserVideo_Comment>
+         <UserVideo_Comment setReplyTo={setReplyTo} data={comments}></UserVideo_Comment>
          {!currentShow ? (
             <div
                className={styles.responses}
@@ -16,13 +17,24 @@ function UserVideo_Comments() {
                   setCurrentShow(currentShow + 3);
                }}
             >
-               <div className={styles.responses_expan}>View more replies (322)</div>
+               <div className={styles.responses_expan}>View more replies ({comments.reply.length})</div>
                <FontAwesomeIcon icon={faChevronDown} className={styles.arrowIcon}></FontAwesomeIcon>
             </div>
          ) : (
             <Fragment>
-               <UserVideo_Comment notHost={true}></UserVideo_Comment>
-               <UserVideo_Comment notHost={true}></UserVideo_Comment>
+               {comments.reply.map((comment, index) => {
+                  if (index + 1 <= currentShow) {
+                     return (
+                        <UserVideo_Comment
+                           setReplyTo={setReplyTo}
+                           key={index}
+                           notHost={true}
+                           data={comment}
+                        ></UserVideo_Comment>
+                     );
+                  }
+               })}
+
                <div className={styles.viewMore_wrapper}>
                   <div className={styles.viewMore}>
                      <div className={styles.viewMore_content}>View more</div>

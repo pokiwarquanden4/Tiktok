@@ -1,22 +1,36 @@
 import styles from './UserVideo_Comment.module.scss';
 import Image from 'src/components/images';
-import { FlagIcon, FlagIconFill, Heart, HeartFill, ThreeDotIcon } from 'components/Icon';
+import { FlagIcon, Heart, HeartFill, ThreeDotIcon } from 'components/Icon';
 import Tippy from '@tippyjs/react/headless';
 import Wrapper from 'components/Poper/wrapper';
-function UserVideo_Comment({ notHost }) {
+import { userAvatar } from 'api';
+import { useDispatch } from 'react-redux';
+import { activeUserSelector } from 'redux/selectors/users';
+function UserVideo_Comment({ notHost, data, setReplyTo }) {
+   const date = new Date(data.updatedAt);
+   const currentUser = useDispatch(activeUserSelector);
+
+   const handleReply = () => {
+      setReplyTo([data.id, data.name]);
+   };
+
    return (
       <div className={styles.comment_wrapper}>
          <Image
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-sP54Dj8ULdIjcK1xSZWAIHFaSkOlK57wMQ&usqp=CAU"
+            src={userAvatar('pokiwarquanden/' + data.avatar)}
             alt="Quang"
             className={`${notHost ? styles.avatarNotHost : styles.avatar}`}
          ></Image>
          <div className={styles.mainContent}>
-            <span className={styles.name}>Trần Minh Quang</span>
-            <div className={styles.content}>Pokiwarquanden4</div>
+            <span className={styles.name}>{data.name}</span>
+            <div className={styles.content}>{data.title}</div>
             <div className={styles.response}>
-               <div className={styles.date}>3-12</div>
-               <div className={styles.answer}>Reply</div>
+               <div className={styles.date}>
+                  {date.getMonth() + 1}/{date.getDate()}
+               </div>
+               <div className={styles.answer} onClick={handleReply}>
+                  Reply
+               </div>
             </div>
          </div>
          <div className={styles.userAction}>
@@ -28,7 +42,6 @@ function UserVideo_Comment({ notHost }) {
                   render={(attrs) => (
                      <Wrapper className={styles.report}>
                         <FlagIcon className={styles.flagIcon}></FlagIcon>
-                        {/* <FlagIconFill className={styles.flagIcon}></FlagIconFill> */}
                         <div className={styles.reportContent}>Report</div>
                      </Wrapper>
                   )}
@@ -39,12 +52,12 @@ function UserVideo_Comment({ notHost }) {
                </Tippy>
             </div>
             <div className={styles.heartAction}>
-               {true ? (
+               {data.liker.indexOf(currentUser.nickName) ? (
                   <Heart className={styles.heartIcon}></Heart>
                ) : (
                   <HeartFill className={styles.heartIconFill}></HeartFill>
                )}
-               <div className={styles.heartNumber}>1000</div>
+               <div className={styles.heartNumber}>{data.liker.length}</div>
             </div>
          </div>
       </div>

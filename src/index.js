@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
+import AppCover from 'AppCover';
 import reportWebVitals from './reportWebVitals';
 import GlobalStyles from './components/GlobalStyles';
 import { createStore, applyMiddleware } from 'redux';
@@ -17,7 +17,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
    <Provider store={store}>
       <GlobalStyles>
-         <App />
+         <AppCover></AppCover>
       </GlobalStyles>
    </Provider>,
 );

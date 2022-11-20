@@ -23,6 +23,9 @@ function LoginUser() {
             active: true,
          }),
       );
+
+      localStorage.setItem('nickName', nickName);
+
       setActiveAccount({
          nickName: nickName,
          password: password,

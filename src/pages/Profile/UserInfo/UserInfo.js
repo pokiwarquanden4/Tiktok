@@ -30,7 +30,7 @@ function UserInfo({ user }) {
       if (user.avatar === undefined) {
          return;
       }
-      return userAvatar(user.avatar);
+      return userAvatar(user.nickName + '/' + user.avatar);
    };
    const shareMenu = [
       { icon: <Link></Link>, title: 'Embeb', to: config.routes.home },
@@ -93,11 +93,11 @@ function UserInfo({ user }) {
          </div>
          <div className={styles.followInfo}>
             <div className={styles.currentFollow}>
-               {user.following}
+               {user.following.length}
                <p className={styles.currentFollow_title}>Following</p>
             </div>
             <div className={styles.follower}>
-               {user.follower}
+               {user.follower.length}
                <p className={styles.follower_title}>Followers</p>
             </div>
             <div className={styles.likes}>
