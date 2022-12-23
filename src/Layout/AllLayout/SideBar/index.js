@@ -14,15 +14,16 @@ import { Discover } from './Discover';
 import { MoreInfo } from './MoreInfo';
 import { Fragment, memo, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { recommendUserSelector } from 'redux/selectors/users';
+import { activeUserSelector, recommendUserSelector } from 'redux/selectors/usersSelector';
 import { recommendUser } from 'redux/actions/usersActions/usersActions';
 
 function SideBar({ smallSize, liveAction, className, noHoverAction }) {
    const dispatch = useDispatch();
    const listUsers = useSelector(recommendUserSelector);
+   const currentUser = useSelector(activeUserSelector);
 
    useEffect(() => {
-      dispatch(recommendUser.recommendUserRequest());
+      dispatch(recommendUser.recommendUserRequest(currentUser.nickName));
    }, [dispatch]);
 
    const discover = [
@@ -34,7 +35,7 @@ function SideBar({ smallSize, liveAction, className, noHoverAction }) {
       },
       {
          id: 2,
-         link: '/D',
+         link: '/',
          type: 'page',
          content: 'PageZOnesdfsdfsfsfsfsfsf',
       },
@@ -61,11 +62,11 @@ function SideBar({ smallSize, liveAction, className, noHoverAction }) {
    const fakeAPI = {
       Recommend: {
          type: 'Suggested accounts',
-         data: listUsers,
+         data: listUsers.suggestAccount,
       },
       Follow: {
          type: 'Following accounts',
-         data: listUsers,
+         data: listUsers.followingAccount,
       },
    };
 

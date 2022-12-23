@@ -9,13 +9,35 @@ export default function activeUserReducers(state = INIT_STATE.activeUser, action
             isLoading: true,
          };
       case getType(activeUser.activeUserSuccess):
+         localStorage.setItem('refreshToken', action.payload.refreshJWT);
          return {
             ...state,
             isLoading: false,
             login: true,
-            data: action.payload,
+            wrong: null,
+            data: action.payload.user,
+            jwt: action.payload.jwt,
          };
       case getType(activeUser.activeUserFailure):
+         return {
+            ...state,
+            wrong: action.payload,
+            isLoading: true,
+         };
+      case getType(activeUser.logoutUserRequest):
+         return {
+            ...state,
+            isLoading: true,
+         };
+      case getType(activeUser.logoutUserSuccess):
+         return {
+            ...state,
+            isLoading: false,
+            login: false,
+            data: {},
+            jwt: null,
+         };
+      case getType(activeUser.logoutUserFailure):
          return {
             ...state,
             isLoading: true,
@@ -29,7 +51,10 @@ export default function activeUserReducers(state = INIT_STATE.activeUser, action
          return {
             ...state,
             isLoading: false,
-            data: { ...state.data, video: [...state.data.video, action.payload] },
+            data: {
+               ...state.data,
+               video: [...state.data.video, action.payload],
+            },
          };
       case getType(activeUser.getUploadVideoFailure):
          return {
@@ -45,7 +70,10 @@ export default function activeUserReducers(state = INIT_STATE.activeUser, action
          return {
             ...state,
             isLoading: false,
-            data: { ...state.data, uploadTempVideo: { ...state.data.uploadTempVideo, video: action.payload } },
+            data: {
+               ...state.data,
+               uploadTempVideo: { ...state.data.uploadTempVideo, video: action.payload },
+            },
          };
       case getType(activeUser.getUploadTempVideoFailure):
          return {
@@ -61,9 +89,86 @@ export default function activeUserReducers(state = INIT_STATE.activeUser, action
          return {
             ...state,
             isLoading: false,
-            data: { ...state.data, uploadTempVideo: { ...state.data.uploadTempVideo, video: null } },
+            data: {
+               ...state.data,
+               uploadTempVideo: { ...state.data.uploadTempVideo, video: null },
+            },
          };
       case getType(activeUser.deleteUploadTempVideoFailure):
+         return {
+            ...state,
+            isLoading: true,
+         };
+      case getType(activeUser.followUserRequest):
+         return {
+            ...state,
+            isLoading: true,
+         };
+      case getType(activeUser.followUserSuccess):
+         return {
+            ...state,
+            isLoading: false,
+            data: {
+               ...state.data,
+               following: [...state.data.following, action.payload],
+            },
+         };
+      case getType(activeUser.followUserFailure):
+         return {
+            ...state,
+            isLoading: true,
+         };
+
+      case getType(activeUser.unFollowUserRequest):
+         return {
+            ...state,
+            isLoading: true,
+         };
+      case getType(activeUser.unFollowUserSuccess):
+         const newData = { ...state.data };
+         newData.following.splice(newData.following.indexOf(action.payload), 1);
+
+         return {
+            ...state,
+            isLoading: false,
+            data: newData,
+         };
+      case getType(activeUser.unFollowUserFailure):
+         return {
+            ...state,
+            isLoading: true,
+         };
+      case getType(activeUser.addMessageRoomRequest):
+         return {
+            ...state,
+            isLoading: true,
+         };
+      case getType(activeUser.addMessageRoomSuccess):
+         return {
+            ...state,
+            isLoading: false,
+            data: {
+               ...state.data,
+               message: [...state.data.message, action.payload],
+            },
+         };
+      case getType(activeUser.addMessageRoomFailure):
+         return {
+            ...state,
+            isLoading: true,
+         };
+      case getType(activeUser.editUserRequest):
+         return {
+            ...state,
+            isLoading: true,
+         };
+      case getType(activeUser.editUserSuccess):
+         return {
+            ...state,
+            isLoading: false,
+            data: action.payload,
+         };
+      case getType(activeUser.editUserFailure):
          return {
             ...state,
             isLoading: true,

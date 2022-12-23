@@ -4,45 +4,41 @@ import { DefaultLayout, HeaderOnly } from './Layout';
 import { Fragment, useEffect, useState } from 'react';
 import { FullScreenLayout } from './Layout/FullScreenLayout';
 import { useDispatch, useSelector } from 'react-redux';
-import { activeUser } from 'redux/actions/usersActions/usersActions';
-import { setActiveAccount } from 'api';
-import { activeUserSelector } from 'redux/selectors/users';
+import { videoActions } from 'redux/actions/VideoActions/VideoActions';
+import { videoSelector } from 'redux/selectors/videoSelector';
+import { activeUserSelector } from 'redux/selectors/usersSelector';
+import { messageSelector } from 'redux/selectors/messageSelector';
+import { messageAction } from 'redux/actions/messageActions/messageActions';
+import socketMessage from 'socket/socketActions/socketMessage';
 
 function App() {
    const dispatch = useDispatch();
-   let [finish, setFinish] = useState(false);
+   const [readyVideos, setReadyVideos] = useState(false);
    const user = useSelector(activeUserSelector);
+   const videos = useSelector(videoSelector);
 
    useEffect(() => {
-      const nickName = localStorage.getItem('nickName');
-      if (nickName) {
-         dispatch(
-            activeUser.activeUserRequest({
-               nickName: nickName,
-               localStorage: true,
-               active: true,
-            }),
-         );
-
-         setActiveAccount({
-            nickName: nickName,
-            localStorage: true,
-            active: true,
-         });
+      if (Object.keys(user).length !== 0) {
+         dispatch(videoActions.getVideoRequest([...user.following, user.nickName]));
       } else {
-         setFinish(true);
+         setReadyVideos(true);
       }
    }, []);
 
    useEffect(() => {
-      if (Object.keys(user).length !== 0) {
-         setFinish(true);
+      dispatch(messageAction.getMessageRequest());
+      socketMessage(dispatch);
+   }, []);
+
+   useEffect(() => {
+      if (videos.length >= 0) {
+         setReadyVideos(true);
       }
-   }, [user]);
+   }, [videos]);
 
    const handleLocalStorage = () => {};
    return (
-      finish && (
+      readyVideos && (
          <Router>
             <div className="App">
                <Routes>

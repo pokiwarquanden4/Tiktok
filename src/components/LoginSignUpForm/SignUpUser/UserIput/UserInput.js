@@ -1,6 +1,6 @@
 import styles from './UserInput.module.scss';
 
-function UserInput({ fullNameRef, lastNameRef, nickNameRef, nickNameCheck, passwordRef, avatarRef }) {
+function UserInput({ fullNameRef, lastNameRef, nickNameCheck, nickNameRef, passwordRef, avatarRef }) {
    return (
       <div className={styles.wrapper}>
          <div className={styles.user}>

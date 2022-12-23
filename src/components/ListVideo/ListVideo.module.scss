@@ -11,6 +11,7 @@
       width: 56px;
       height: 56px;
       border-radius: 50%;
+      object-fit: cover;
 
       &:hover {
          cursor: pointer;
@@ -63,6 +64,10 @@
             background-color: rgba(22, 24, 35, 0.1);
             cursor: pointer;
          }
+      }
+
+      .fillColor{
+         color: var(--main-color);
       }
 
       .numberHeart,

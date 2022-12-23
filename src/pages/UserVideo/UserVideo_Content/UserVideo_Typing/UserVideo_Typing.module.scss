@@ -1,3 +1,31 @@
+.wrapper {
+   position: relative;
+}
+.replyTo {
+   background-color: #fff;
+   position: absolute;
+   top: -32%;
+   padding: 4px;
+   border: 1px rgb(86, 4, 4) solid;
+   border-color: rgb(86, 4, 4) rgb(86, 4, 4) transparent rgb(86, 4, 4);
+   // padding: -;
+   border-top-left-radius: 15px;
+   border-top-right-radius: 15px;
+   left: 3%;
+   .replyTo_content {
+      display: flex;
+      align-items: center;
+      .replyTo_title {
+         color: var(--main-color);
+      }
+      .replyTo_icon {
+         margin-left: 10px;
+         font-size: 10px;
+         cursor: pointer;
+      }
+   }
+}
+
 .typingZone {
    display: flex;
    padding: 20px 30px;

@@ -10,12 +10,11 @@ import useDebound from 'src/components/Hook/useDebound';
 import { AccountRecommend } from 'pages/AccountRecommend';
 import { useDispatch, useSelector } from 'react-redux';
 import AccountItem from 'components/AccountItem';
-import { getUsersByName } from 'redux/actions/usersActions/usersActions';
-import { userSearchSelector } from 'redux/selectors/users';
+import { userSearchSelector } from 'redux/selectors/usersSelector';
+import { fetchUsersByName } from 'api';
 
 function SearchBar() {
    const dispatch = useDispatch();
-   const userLists = useSelector(userSearchSelector);
    const [searchValue, setSearchValue] = useState('');
    const [searchResults, setSearchResults] = useState([]);
    const [focusResults, setFocusResults] = useState(true);
@@ -30,15 +29,16 @@ function SearchBar() {
             return;
          }
          setLoading(true);
-         await dispatch(getUsersByName.getUsersByNameRequest(searchValue));
+         fetchUsersByName(searchValue).then((result) => {
+            setSearchResults(result.data);
+         });
       };
       action();
    }, [userDebound]);
 
    useEffect(() => {
       setLoading(false);
-      setSearchResults(userLists);
-   }, [userLists]);
+   }, [searchResults]);
 
    const handleHideResults = () => {
       setFocusResults(false);

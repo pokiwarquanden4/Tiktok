@@ -1,15 +1,16 @@
 import styles from './Video.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPause, faCaretRight, faVolumeHigh, faVolumeXmark } from '@fortawesome/free-solid-svg-icons';
-import { Fragment, useEffect, useRef, useState } from 'react';
+import { Fragment, memo, useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { userVideoLink } from 'api';
+import LTKH from 'src/components/Video/LTKH.mp4';
 
-function Video({ autoPlay, noComment, videoUploadLink, video, videoResize, nonController, nonBorder, user }) {
+function Video({ autoPlay, setAutoPlay, noComment, videoUploadLink, video, videoResize, nonController, nonBorder }) {
+   
    const classes = `${styles.videoPLayer} ${videoResize && styles.videoResize} ${nonBorder && styles.nonBorder}`;
 
    //Video Controler
-   const [play, setPlay] = useState(true);
    const videoProcessTimeRef = useRef();
    const range = useRef();
    const videoCurrentProcess = useRef();
@@ -49,7 +50,7 @@ function Video({ autoPlay, noComment, videoUploadLink, video, videoResize, nonCo
             setVideoCurrentProcess();
             videoProcessTimeRef.current.innerHTML = getTime(video.currentTime);
             if (video.ended) {
-               setPlay(false);
+               setAutoPlay(false);
                resetVideo();
             }
          };
@@ -72,10 +73,10 @@ function Video({ autoPlay, noComment, videoUploadLink, video, videoResize, nonCo
    useEffect(() => {
       if (autoPlay) {
          videoRef.current.play();
-         setPlay(true);
+         
       } else {
          videoRef.current.load();
-         setPlay(false);
+   
       }
    }, [autoPlay]);
 
@@ -85,7 +86,7 @@ function Video({ autoPlay, noComment, videoUploadLink, video, videoResize, nonCo
    const [sound, setSound] = useState(false);
    const soundValue = useRef(100);
 
-   const setSoundCurrentProcess = (value) => {
+   const setSoundCurrentProcess = useCallback((value) => {
       soundValue.current = value;
       volumeBar.current.value = value;
       volumeProcess.current.style.width = value + '%';
@@ -96,7 +97,7 @@ function Video({ autoPlay, noComment, videoUploadLink, video, videoResize, nonCo
       if (value != 0) {
          setSound(true);
       }
-   };
+   });
 
    useEffect(() => {
       if (!nonController) {
@@ -109,6 +110,16 @@ function Video({ autoPlay, noComment, videoUploadLink, video, videoResize, nonCo
       }
    }, []);
 
+   // console.log('videoName: ' + video.video)
+   // console.log('autoPlay: ' + autoPlay)
+   // console.log('noComment: ' + noComment)
+   // console.log('videoUploadLink: ' + videoUploadLink)
+   // console.log('video: ' + video)
+   // console.log('videoResize: ' + videoResize)
+   // console.log('nonController: ' + nonController)
+   // console.log('nonBorder: ' + nonBorder)
+   // console.log('nonBorder: ' + nonBorder)
+   // console.log('sound: ' + sound)
    return (
       <div className={classes}>
          {noComment ? (
@@ -124,7 +135,7 @@ function Video({ autoPlay, noComment, videoUploadLink, video, videoResize, nonCo
                <video
                   ref={videoRef}
                   muted
-                  src={userVideoLink(video.nickName + '/MainVideo/' + video.video)}
+                  src={userVideoLink(video.nickName + '/MainVideo/' + video.video + '#t='  +0)}
                   loop={true}
                   className={`${styles.video} ${nonBorder && styles.nonBorder}`}
                ></video>
@@ -158,19 +169,19 @@ function Video({ autoPlay, noComment, videoUploadLink, video, videoResize, nonCo
                </div>
                <FontAwesomeIcon
                   icon={faPause}
-                  className={`${styles.continueButton} ${!play && styles.visible}`}
+                  className={`${styles.continueButton} ${!autoPlay && styles.visible}`}
                   onClick={() => {
                      videoRef.current.pause();
-                     setPlay(false);
+                     setAutoPlay(false);
                   }}
                ></FontAwesomeIcon>
                <FontAwesomeIcon
                   icon={faCaretRight}
-                  className={`${styles.pauseButton} ${play && styles.visible}`}
+                  className={`${styles.pauseButton} ${autoPlay && styles.visible}`}
                   onClick={() => {
                      videoRef.current.play();
 
-                     setPlay(true);
+                     setAutoPlay(true);
                   }}
                ></FontAwesomeIcon>
                <FontAwesomeIcon
@@ -203,4 +214,4 @@ function Video({ autoPlay, noComment, videoUploadLink, video, videoResize, nonCo
    );
 }
 
-export default Video;
+export default memo(Video);

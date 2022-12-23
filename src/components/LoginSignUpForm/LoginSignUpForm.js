@@ -6,7 +6,7 @@ import { FaceBook, QRCode, GoogleIcon, Twitter, Line, Apple, User } from 'compon
 import { SignUpUser } from 'components/LoginSignUpForm/SignUpUser';
 import { LoginUser } from './LoginUser';
 import { useSelector } from 'react-redux';
-import { inputZoneSelector } from 'redux/selectors/inputZone';
+import { inputZoneSelector } from 'redux/selectors/inputZoneSelector';
 
 function LoginSignUpForm() {
    let inputStatus = useSelector(inputZoneSelector);
@@ -57,8 +57,8 @@ function LoginSignUpForm() {
       },
    ];
    return (
-      !inputStatus && (
-         <InputZone childrenValue={childrenValue} setChildren={setChildrenValue}>
+      !inputStatus.loginSignUp && (
+         <InputZone childrenValue={childrenValue} setChildren={setChildrenValue} type="loginSignUp">
             <div className={styles.wrapper}>
                {childrenValue || (
                   <DefaultFrom

@@ -3,15 +3,35 @@ import { getType, inputZone } from 'redux/actions/InputZoneActions/InputZoneActi
 
 export default function inputZoneReducer(state = INIT_STATE.inputZone, action) {
    switch (action.type) {
-      case getType(inputZone.hide):
+      case getType(inputZone.hideLoginSignUp):
          return {
             ...state,
-            hide: true,
+            loginSignUp: true,
          };
-      case getType(inputZone.show):
+      case getType(inputZone.showLoginSignUp):
          return {
             ...state,
-            hide: false,
+            loginSignUp: false,
+         };
+      case getType(inputZone.hideEditUser):
+         return {
+            ...state,
+            editUser: true,
+         };
+      case getType(inputZone.showEditUser):
+         return {
+            ...state,
+            editUser: false,
+         };
+      case getType(inputZone.hideComingSoon):
+         return {
+            ...state,
+            comingSoon: true,
+         };
+      case getType(inputZone.showComingSoon):
+         return {
+            ...state,
+            comingSoon: false,
          };
       default:
          return state;

@@ -2,10 +2,17 @@ import { useEffect, useState } from 'react';
 import styles from './VideoList.module.scss';
 import VideoPreview from './VideoPreview/VideoPreview';
 import { Grid } from 'components/Grid';
-import { getVideosByNickNameAPI } from 'api';
+import { videoActions } from 'redux/actions/VideoActions/VideoActions';
 import { LoadingAnimation } from 'components/LoadingAnimation';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { videoSelector } from 'redux/selectors/videoSelector';
+import { getVideosByNickNameAPI } from 'api';
 
 function VideoList({ nickName }) {
+   const dispatch = useDispatch();
+   const videos = useSelector(videoSelector);
+
    const [listVideo, setListVideo] = useState();
    const [currentId, setCurrentId] = useState();
    const [currentPlay, setCurrentPlay] = useState();

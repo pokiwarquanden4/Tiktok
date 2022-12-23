@@ -198,12 +198,13 @@ export const MusicIconDiscover = ({ className, width = '16px', height = '16px' }
 };
 
 //Video Button
-export const Heart = ({ className, width = '20px', height = '20px' }) => {
+export const Heart = ({ className, width = '20px', height = '20px', onClick }) => {
    return (
       <svg
          className={className}
          width={width}
          height={height}
+         onClick={onClick}
          viewBox="0 0 48 48"
          fill="currentColor"
          xmlns="http://www.w3.org/2000/svg"
@@ -216,17 +217,18 @@ export const Heart = ({ className, width = '20px', height = '20px' }) => {
       </svg>
    );
 };
-export const HeartFill = ({ className, width = '20px', height = '20px' }) => {
+export const HeartFill = ({ className, width = '20px', height = '20px', onClick }) => {
    return (
       <svg
          className={className}
          width={width}
          height={height}
+         onClick={onClick}
          viewBox="0 0 24 24"
          fill="rgba(254, 44, 85, 1)"
          xmlns="http://www.w3.org/2000/svg"
       >
-         <g clip-path="url(#HeartFill_clip0)">
+         <g clipPath="url(#HeartFill_clip0)">
             <g filter="url(#HeartFill_filter0_d)">
                <path
                   fillRule="evenodd"
@@ -238,7 +240,7 @@ export const HeartFill = ({ className, width = '20px', height = '20px' }) => {
                fillRule="evenodd"
                clipRule="evenodd"
                d="M2.40179 12.1998C3.58902 14.6966 5.7592 16.9269 7.74989 18.75C9.5504 20.3989 10.9999 21.5 11.9999 21.5C12.9999 21.5 14.4094 20.4072 16.2499 18.75C19.231 16.0657 22.4999 12.5 22.4999 8.49997C22.4999 8.41258 22.4983 8.32566 22.4952 8.23923C20.5671 13.6619 13.6787 18.5 11.75 18.5C10.3127 18.5 5.61087 15.8131 2.40179 12.1998Z"
-               fill-opacity="0.03"
+               fillOpacity="0.03"
             ></path>
          </g>
          <defs>
@@ -249,9 +251,9 @@ export const HeartFill = ({ className, width = '20px', height = '20px' }) => {
                width="25.8"
                height="24.05"
                filterUnits="userSpaceOnUse"
-               color-interpolation-filters="sRGB"
+               colorInterpolationFilters="sRGB"
             >
-               <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+               <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
                <feColorMatrix
                   in="SourceAlpha"
                   type="matrix"
@@ -692,12 +694,12 @@ export const BandedIcon = ({ className, width = '16px', height = '16px' }) => {
          fill="none"
          viewBox="0 0 16 16"
       >
-         <g clip-path="url(#block-icon_svg__clip0)">
+         <g clipPath="url(#block-icon_svg__clip0)">
             <path
                fill="black"
                fillRule="evenodd"
                stroke="black"
-               stroke-width="0.75"
+               strokeWidth="0.75"
                d="M4.48 3.994l7.526 7.527A5.333 5.333 0 004.48 3.994zm7.056 8l-7.53-7.53a5.333 5.333 0 007.529 7.529zM3.765 3.75a6 6 0 118.47 8.5 6 6 0 01-8.47-8.5z"
                clipRule="evenodd"
             ></path>
@@ -1227,6 +1229,27 @@ export const Apple = ({ className, width = '20px', height = '20px' }) => {
             d="M32.54 4c.278 2.368-.73 4.699-2.203 6.412-1.537 1.687-3.999 2.978-6.395 2.811-.312-2.276.9-4.697 2.26-6.174C27.739 5.372 30.406 4.09 32.539 4zm7.844 13.647c-.276.153-4.7 2.614-4.65 7.625.055 6.058 5.697 8.059 5.766 8.08-.034.14-.883 2.89-2.999 5.68-1.768 2.458-3.621 4.86-6.56 4.905-1.399.03-2.342-.345-3.326-.734-1.026-.407-2.095-.831-3.77-.831-1.773 0-2.89.437-3.966.86-.932.364-1.833.717-3.104.766-2.801.097-4.94-2.624-6.772-5.06-3.659-4.97-6.51-14.01-2.689-20.159 1.851-3.016 5.23-4.96 8.837-5.011 1.59-.031 3.114.538 4.45 1.038 1.02.381 1.932.722 2.678.722.657 0 1.543-.328 2.576-.709 1.628-.601 3.62-1.336 5.648-1.137 1.387.036 5.338.508 7.887 3.962l-.006.003z"
             clipRule="evenodd"
          ></path>
+      </svg>
+   );
+};
+
+export const Pencil = ({ className, width = '16px', height = '16px' }) => {
+   return (
+      <svg
+         className={className}
+         width={width}
+         height={height}
+         data-e2e=""
+         viewBox="0 0 48 48"
+         fill="currentColor"
+         xmlns="http://www.w3.org/2000/svg"
+      >
+         <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M26.5858 5.08579C27.3479 4.32371 28.5767 4.30253 29.3646 5.03789L36.8646 12.0379C37.2612 12.408 37.4904 12.9232 37.4997 13.4655C37.5091 14.0078 37.2977 14.5307 36.9142 14.9142L16.9142 34.9142C16.5391 35.2893 16.0304 35.5 15.5 35.5H8.5C7.39543 35.5 6.5 34.6046 6.5 33.5V26C6.5 25.4696 6.71071 24.9609 7.08579 24.5858L26.5858 5.08579ZM28.0479 9.2805L10.5 26.8284V31.5H14.6716L32.622 13.5496L28.0479 9.2805Z"
+         ></path>
+         <path d="M7 41C7 40.4477 7.44772 40 8 40H41C41.5523 40 42 40.4477 42 41V43C42 43.5523 41.5523 44 41 44H8C7.44772 44 7 43.5523 7 43V41Z"></path>
       </svg>
    );
 };

@@ -4,14 +4,11 @@ import { useRef, useState } from 'react';
 import { UserInput } from './UserIput';
 import Button from 'components/Button';
 import { useDispatch } from 'react-redux';
-import { createUser } from 'redux/actions/usersActions/usersActions';
-import { useSelector } from 'react-redux';
-import { allUserSelector } from 'redux/selectors/users';
 import { inputZone } from 'redux/actions/InputZoneActions/InputZoneActions';
+import { createUserAPI } from 'api';
+import { activeUser } from 'redux/actions/usersActions/usersActions';
 
 function LoginUser({ setChildrenValue }) {
-   const allUsers = useSelector(allUserSelector);
-
    const monthRef = useRef();
    const [monthValue, setMonthValue] = useState(undefined);
    const [monthDrop, setMonthDrop] = useState(undefined);
@@ -24,13 +21,14 @@ function LoginUser({ setChildrenValue }) {
    const [yearValue, setYearValue] = useState(undefined);
    const [yearDrop, setYearDrop] = useState(undefined);
 
+   const [nickNameCheck, setNickNameCheck] = useState(false);
+
    const dispatch = useDispatch();
    const fullNameRef = useRef();
 
    const lastNameRef = useRef();
 
    const nickNameRef = useRef();
-   const [nickNameCheck, setNickNameCheck] = useState(false);
 
    const passwordRef = useRef();
 
@@ -115,14 +113,6 @@ function LoginUser({ setChildrenValue }) {
    const year = Array.from({ length: 120 }, (_, i) => i + 1910);
 
    const handleSubmit = async () => {
-      if (allUsers.find((user) => nickNameRef.current.value === user.nickName)) {
-         //Failure
-         setNickNameCheck(true);
-         return;
-      } else {
-         setNickNameCheck(false);
-      }
-
       const formData = new FormData();
       formData.append('nickName', nickNameRef.current.value);
       formData.append('avatar', avatarRef.current.files[0]);
@@ -131,10 +121,15 @@ function LoginUser({ setChildrenValue }) {
       formData.append('password', passwordRef.current.value);
       formData.append('dateOfBirth', yearValue + '-' + (getMonth(monthValue) + 1) + '-' + dayValue);
 
-      dispatch(createUser.createUserRequest(formData));
-
-      setChildrenValue(undefined);
-      dispatch(inputZone.hide());
+      createUserAPI(formData).then((result) => {
+         if (result.data === 'The Account Exit') {
+            setNickNameCheck(true);
+         } else {
+            setChildrenValue(undefined);
+            dispatch(activeUser.activeUserFailure(null));
+            dispatch(inputZone.hideLoginSignUp());
+         }
+      });
    };
 
    return (
@@ -177,9 +172,9 @@ function LoginUser({ setChildrenValue }) {
             <div className={styles.user}>
                <UserInput
                   fullNameRef={fullNameRef}
+                  nickNameCheck={nickNameCheck}
                   lastNameRef={lastNameRef}
                   nickNameRef={nickNameRef}
-                  nickNameCheck={nickNameCheck}
                   passwordRef={passwordRef}
                   avatarRef={avatarRef}
                ></UserInput>

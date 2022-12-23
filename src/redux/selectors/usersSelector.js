@@ -1,14 +1,15 @@
-//Danh sách tìm kiếm
-export const userSearchSelector = (state) => {
-   return state.getUserByNameReducers.data;
-};
-//Tất cả người dùng
-export const allUserSelector = (state) => {
-   return state.allUserReducers.data;
-};
 //Người dùng đang hoạt động
 export const activeUserSelector = (state) => {
    return state.activeUserReducers.data;
+};
+export const loginUserSelector = (state) => {
+   return state.activeUserReducers.login;
+};
+export const loginWrongSelector = (state) => {
+   return state.activeUserReducers.wrong;
+};
+export const activeUserJWT = (state) => {
+   return state.activeUserReducers.data.jwt;
 };
 export const activeUserLoadingSelector = (state) => {
    return state.activeUserReducers.isLoading;
@@ -16,8 +17,4 @@ export const activeUserLoadingSelector = (state) => {
 //Người dùng được khuyến nghị
 export const recommendUserSelector = (state) => {
    return state.recommendUserReducer.data;
-};
-//Người dùng đang theo dõi
-export const followingUserSelector = (state) => {
-   return state.followingUserReducer.data;
 };

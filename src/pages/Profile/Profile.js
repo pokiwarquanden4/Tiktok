@@ -5,13 +5,10 @@ import { useEffect, useState } from 'react';
 import { VideoList } from './VideoList';
 import { UserInfo } from './UserInfo';
 import { useParams } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { getUsers } from 'redux/actions/usersActions/usersActions';
 import { getOneUserByNameAPI } from 'api';
 import { LoadingAnimation } from 'components/LoadingAnimation';
 
 function Profile() {
-   const dispatch = useDispatch();
    const [content, setContent] = useState(1);
    const params = useParams();
    var [currentUser, setCurrentUser] = useState();
@@ -20,11 +17,7 @@ function Profile() {
       getOneUserByNameAPI(params.nickname).then((result) => {
          setCurrentUser(result.data);
       });
-   }, []);
-
-   useEffect(() => {
-      dispatch(getUsers.getUsersRequest());
-   }, [dispatch]);
+   }, [params.nickname]);
 
    return (
       <div className={styles.wrapper}>

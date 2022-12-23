@@ -3,22 +3,18 @@ import ReactDOM from 'react-dom/client';
 import AppCover from 'AppCover';
 import reportWebVitals from './reportWebVitals';
 import GlobalStyles from './components/GlobalStyles';
-import { createStore, applyMiddleware } from 'redux';
-import createSagaMiddleware from 'redux-saga';
 import { Provider } from 'react-redux';
-import mySaga from 'redux/sagas/userSaga';
-import reducers from './redux/reducers';
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { persistor, store } from './redux/reducers';
+import { PersistGate } from 'redux-persist/integration/react';
 
-const sagaMiddleware = createSagaMiddleware();
-const store = createStore(reducers, applyMiddleware(sagaMiddleware));
-sagaMiddleware.run(mySaga);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
    <Provider store={store}>
-      <GlobalStyles>
-         <AppCover></AppCover>
-      </GlobalStyles>
+      <PersistGate loading={null} persistor={persistor}>
+         <GlobalStyles>
+            <AppCover></AppCover>
+         </GlobalStyles>
+      </PersistGate>
    </Provider>,
 );
 

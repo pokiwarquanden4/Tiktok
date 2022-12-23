@@ -3,24 +3,6 @@ import { createAction, createActions } from 'redux-actions';
 export const getType = (reduxAction) => {
    return reduxAction().type;
 };
-
-export const getUsers = createActions({
-   getUsersRequest: undefined,
-   getUsersSuccess: (payload) => payload,
-   getUsersFailure: (err) => err,
-});
-
-export const getUsersByName = createActions({
-   getUsersByNameRequest: (payload) => payload,
-   getUsersByNameSuccess: (payload) => payload,
-   getUsersByNameFailure: (err) => err,
-});
-
-export const createUser = createActions({
-   createUserRequest: (payload) => payload,
-   createUserSuccess: (payload) => payload,
-   createUserFailure: (err) => err,
-});
 export const activeUser = createActions({
    getUploadTempVideoRequest: (payload) => payload,
    getUploadTempVideoSuccess: (payload) => payload,
@@ -34,17 +16,32 @@ export const activeUser = createActions({
    getUploadVideoSuccess: (payload) => payload,
    getUploadVideoFailure: (err) => err,
 
+   followUserRequest: (payload) => payload,
+   followUserSuccess: (payload) => payload,
+   followUserFailure: (err) => err,
+
+   unFollowUserRequest: (payload) => payload,
+   unFollowUserSuccess: (payload) => payload,
+   unFollowUserFailure: (err) => err,
+
+   addMessageRoomRequest: (payload) => payload,
+   addMessageRoomSuccess: (payload) => payload,
+   addMessageRoomFailure: (err) => err,
+
    activeUserRequest: (payload) => payload,
    activeUserSuccess: (payload) => payload,
    activeUserFailure: (err) => err,
+
+   editUserRequest: (payload) => payload,
+   editUserSuccess: (payload) => payload,
+   editUserFailure: (err) => err,
+
+   logoutUserRequest: (payload) => payload,
+   logoutUserSuccess: (payload) => payload,
+   logoutUserFailure: (err) => err,
 });
 export const recommendUser = createActions({
-   recommendUserRequest: undefined,
+   recommendUserRequest: (payload) => payload,
    recommendUserSuccess: (payload) => payload,
    recommendUserFailure: (err) => err,
-});
-export const followingUser = createActions({
-   followingUserRequest: (payload) => payload,
-   followingUserSuccess: (payload) => payload,
-   followingUserFailure: (err) => err,
 });

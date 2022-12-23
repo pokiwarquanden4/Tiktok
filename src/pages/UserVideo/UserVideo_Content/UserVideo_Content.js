@@ -6,12 +6,12 @@ import { UserVideo_Header } from './UserVideo_Header';
 import { UserVideo_Typing } from './UserVideo_Typing';
 import { userAvatar } from 'api';
 import { useSelector } from 'react-redux';
-import { activeUserSelector } from 'redux/selectors/users';
+import { activeUserSelector } from 'redux/selectors/usersSelector';
 import { useState } from 'react';
 
 function UserVideo_Content({ video, user }) {
    const currentUser = useSelector(activeUserSelector);
-   const [replyTo, setReplyTo] = useState(null);
+   const [replyTo, setReplyTo] = useState([null, null]);
 
    return (
       <div className={styles.content}>
@@ -25,10 +25,15 @@ function UserVideo_Content({ video, user }) {
          ></UserVideo_Header>
          <div className={styles.comment_wrapper}>
             {video.comment.map((comments, number) => (
-               <UserVideo_Comments setReplyTo={setReplyTo} key={number} comments={comments}></UserVideo_Comments>
+               <UserVideo_Comments
+                  setReplyTo={setReplyTo}
+                  key={number}
+                  comments={comments}
+                  video={video}
+               ></UserVideo_Comments>
             ))}
          </div>
-         <UserVideo_Typing replyTo={replyTo} user={user}></UserVideo_Typing>
+         <UserVideo_Typing replyTo={replyTo} setReplyTo={setReplyTo} user={user} video={video}></UserVideo_Typing>
       </div>
    );
 }

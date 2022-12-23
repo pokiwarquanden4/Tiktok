@@ -4,11 +4,15 @@ import { FlagIcon, Heart, HeartFill, ThreeDotIcon } from 'components/Icon';
 import Tippy from '@tippyjs/react/headless';
 import Wrapper from 'components/Poper/wrapper';
 import { userAvatar } from 'api';
-import { useDispatch } from 'react-redux';
-import { activeUserSelector } from 'redux/selectors/users';
-function UserVideo_Comment({ notHost, data, setReplyTo }) {
+import { useSelector } from 'react-redux';
+import { activeUserSelector } from 'redux/selectors/usersSelector';
+import { likeCommentVideoAPI, unLikeCommentVideoAPI } from 'api';
+import { useState } from 'react';
+function UserVideo_Comment({ notHost, data, setReplyTo, video }) {
    const date = new Date(data.updatedAt);
-   const currentUser = useDispatch(activeUserSelector);
+   const currentUser = useSelector(activeUserSelector);
+   const [heart, setHeart] = useState(data.liker.indexOf(currentUser.nickName) === -1);
+   const [liker, setLiker] = useState(data.liker);
 
    const handleReply = () => {
       setReplyTo([data.id, data.name]);
@@ -17,7 +21,7 @@ function UserVideo_Comment({ notHost, data, setReplyTo }) {
    return (
       <div className={styles.comment_wrapper}>
          <Image
-            src={userAvatar('pokiwarquanden/' + data.avatar)}
+            src={userAvatar(data.name + '/' + data.avatar)}
             alt="Quang"
             className={`${notHost ? styles.avatarNotHost : styles.avatar}`}
          ></Image>
@@ -52,12 +56,36 @@ function UserVideo_Comment({ notHost, data, setReplyTo }) {
                </Tippy>
             </div>
             <div className={styles.heartAction}>
-               {data.liker.indexOf(currentUser.nickName) ? (
-                  <Heart className={styles.heartIcon}></Heart>
+               {heart ? (
+                  <Heart
+                     className={styles.heartIcon}
+                     onClick={() => {
+                        likeCommentVideoAPI({
+                           video: video.video,
+                           commentId: data.id,
+                           userName: currentUser.nickName,
+                        }).then(() => {
+                           setHeart(false);
+                           setLiker([...liker, currentUser.nickName]);
+                        });
+                     }}
+                  ></Heart>
                ) : (
-                  <HeartFill className={styles.heartIconFill}></HeartFill>
+                  <HeartFill
+                     className={styles.heartIconFill}
+                     onClick={() => {
+                        unLikeCommentVideoAPI({
+                           video: video.video,
+                           commentId: data.id,
+                           userName: currentUser.nickName,
+                        }).then(() => {
+                           setHeart(true);
+                           liker.splice(liker.indexOf(currentUser.nickName), 1);
+                        });
+                     }}
+                  ></HeartFill>
                )}
-               <div className={styles.heartNumber}>{data.liker.length}</div>
+               <div className={styles.heartNumber}>{liker.length}</div>
             </div>
          </div>
       </div>

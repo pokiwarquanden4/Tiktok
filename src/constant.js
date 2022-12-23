@@ -1,26 +1,42 @@
 export const INIT_STATE = {
-   allUser: {
-      data: [],
-      isLoading: false,
-   },
    inputZone: {
-      hide: true,
-   },
-   usersSearch: {
-      data: [],
-      isLoading: false,
+      loginSignUp: true,
+      editUser: {
+         visible: true,
+         user: null,
+      },
+      comingSoon: true
    },
    activeUser: {
       data: {},
+      jwt: null,
       login: false,
+      wrong: null,
       isLoading: false,
    },
    recommendUser: {
-      data: [],
+      data: {
+         suggestAccount: [],
+         followingAccount: [],
+      },
       isLoading: false,
    },
-   followingUser: {
-      data: [],
+   socketIO: {
+      socket: null,
+   },
+   video: {
+      nickName: [],
+      video: [],
       isLoading: false,
+   },
+   message: {
+      messageList: [],
+      isLoading: false,
+   },
+   lazyLoading: {
+      loading: false,
+      maxVideo: 1,
+      currentVideo: 1,
+      pending: false,
    },
 };

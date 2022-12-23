@@ -11,18 +11,22 @@ function VideoPreview({ data, startCurrentPlay, currentId, stopCurrentPlay }) {
    return (
       <div className={styles.videoWrapper}>
          {true ? (
-            <video
-               ref={videoRef}
-               className={styles.video}
-               src={getVideoLink(data.video)}
-               poster={data.img}
-               loop
-               muted
+            <div
+               className={styles.videoResize}
                onMouseOver={() => {
                   startCurrentPlay(videoRef, data.id);
                   stopCurrentPlay(videoRef);
                }}
-            ></video>
+            >
+               <video
+                  ref={videoRef}
+                  className={styles.video}
+                  src={getVideoLink(data.video)}
+                  poster={data.img}
+                  loop
+                  muted
+               ></video>
+            </div>
          ) : (
             <image src={data.img} className={styles.img}></image>
          )}

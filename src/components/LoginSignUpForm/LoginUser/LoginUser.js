@@ -1,16 +1,17 @@
 import styles from './LoginUser.module.scss';
 import Button from 'components/Button';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { activeUser } from 'redux/actions/usersActions/usersActions';
-import { activeUserSelector } from 'redux/selectors/users';
+import { activeUserSelector, loginWrongSelector } from 'redux/selectors/usersSelector';
 import { inputZone } from 'redux/actions/InputZoneActions/InputZoneActions';
-import { setActiveAccount } from 'api';
+import { recommendUser } from 'redux/actions/usersActions/usersActions';
 
 function LoginUser() {
    const dispatch = useDispatch();
    const user = useSelector(activeUserSelector);
-   const [error, setError] = useState(false);
+   const loginWrong = useSelector(loginWrongSelector);
+   const [error, setError] = useState([true, true]);
 
    const [nickName, setNickName] = useState('');
    const [password, setPassword] = useState('');
@@ -23,27 +24,36 @@ function LoginUser() {
             active: true,
          }),
       );
-
-      localStorage.setItem('nickName', nickName);
-
-      setActiveAccount({
-         nickName: nickName,
-         password: password,
-         active: true,
-      });
-      dispatch(inputZone.hide());
    };
 
    useEffect(() => {
-      if (user && Object.keys(user).length === 0) {
+      if (Object.keys(user).length !== 0) {
+         dispatch(recommendUser.recommendUserRequest(user.nickName));
+         dispatch(activeUser.activeUserFailure(null));
+         dispatch(inputZone.hideLoginSignUp());
       }
    }, [user]);
 
-   const handleError = () => {
-      if (!user) {
-         setError(true);
+   useEffect(() => {
+      if (loginWrong) {
+         switch (loginWrong) {
+            case 'Wrong User Name':
+               setError([false, true]);
+               break;
+            case 'Wrong PassWord':
+               setError([true, false]);
+               break;
+            default:
+               break;
+         }
       }
-   };
+   }, [loginWrong]);
+
+   const handleChange = useCallback(() => {
+      if (!error[0] || !error[1]) {
+         setError([true, true]);
+      }
+   });
 
    return (
       <div className={styles.wrapper}>
@@ -55,13 +65,12 @@ function LoginUser() {
                   className={styles.nickName_input}
                   placeholder="Enter Nick Name"
                   onChange={(e) => {
-                     if (error) {
-                        setError(false);
-                     }
+                     handleChange();
                      setNickName(e.target.value);
                   }}
                ></input>
             </div>
+            {!error[0] && <div className={styles.errorMessage}>Wrong nick name</div>}
             <div className={styles.user_password}>
                <div className={styles.password_title}>Password</div>
                <input
@@ -69,14 +78,12 @@ function LoginUser() {
                   className={styles.password_input}
                   placeholder="Enter Password"
                   onChange={(e) => {
-                     if (error) {
-                        setError(false);
-                     }
+                     handleChange();
                      setPassword(e.target.value);
                   }}
                ></input>
             </div>
-            {error && <div className={styles.errorMessage}>Something when wrong !</div>}
+            {!error[1] && <div className={styles.errorMessage}>Wrong password</div>}
             <div className={styles.login}>
                <Button primary className={styles.loginButton} onClick={handleLogin}>
                   Login

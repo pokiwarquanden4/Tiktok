@@ -9,7 +9,7 @@ import { ConfirmButton } from './ConfirmButton';
 import { CopyRight } from './CopyRight';
 import { Fragment, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { activeUserSelector, activeUserLoadingSelector } from 'redux/selectors/users';
+import { activeUserSelector, activeUserLoadingSelector } from 'redux/selectors/usersSelector';
 import { activeUser } from 'redux/actions/usersActions/usersActions';
 import { Video } from 'components/Video';
 import { userTempVideo } from 'api';
@@ -32,7 +32,8 @@ function Upload() {
    const [captionValue, setCaptionValue] = useState([]);
 
    //Cover
-   const [coverPic, setCoverPic] = useState();
+   const [coverPic, setCoverPic] = useState(0);
+   
 
    //Who View
    const [dropSelector, setDropSelector] = useState(1);
@@ -102,7 +103,7 @@ function Upload() {
          captions: captionValue,
          mentions: getMentions(),
          video: user.uploadTempVideo.video,
-         coverPic: 'ddđ',
+         coverPic: coverPic,
          whoView: getWhoView(),
          allowUser: allowUser,
          runACopy: button,
@@ -110,6 +111,15 @@ function Upload() {
 
       dispatch(activeUser.getUploadVideoRequest(formData));
       dispatch(activeUser.deleteUploadTempVideoSuccess('OK'));
+   };
+
+   const handleDiscard = () => {
+      dispatch(
+         activeUser.deleteUploadTempVideoRequest({
+            nickName: user.nickName,
+            videoName: user.uploadTempVideo.video,
+         }),
+      );
    };
 
    return (
@@ -193,6 +203,7 @@ function Upload() {
                   <AllowUser allowUser={allowUser} setAllowUser={setAllowUser}></AllowUser>
                   <CopyRight button={button} setButton={setButton}></CopyRight>
                   <ConfirmButton
+                     handleDiscard={handleDiscard}
                      submitEnable={submitEnable}
                      setSubmitEnable={setSubmitEnable}
                      handleSubmit={handleSubmit}

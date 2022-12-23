@@ -1,11 +1,23 @@
 import styles from './MessageList.module.scss';
 import Image from 'src/components/images';
-import { Fragment, useState } from 'react';
+import { Fragment, useState, useCallback } from 'react';
 import { ThreeDotIcon } from 'src/components/Icon';
 import Tippy from '@tippyjs/react/headless';
+import { userAvatar } from 'api';
 
-function MessageList({ data }) {
+function MessageList({ data, opoUser, user }) {
    const [currentIcon, setCurrentIcon] = useState(0);
+
+   const getAvatar = useCallback((user) => {
+      if (Object.keys(user).length !== 0) {
+         return userAvatar(user.nickName + '/' + user.avatar);
+      }
+   });
+
+   const getTime = useCallback((time) => {
+      const timeConvert = new Date(time);
+      return timeConvert.getHours() + ':' + timeConvert.getMinutes();
+   });
 
    return (
       <Fragment>
@@ -17,9 +29,17 @@ function MessageList({ data }) {
                   <Fragment key={item.time}>
                      <div
                         className={styles.yourMessageWrapper}
-                        style={item.guest ? { flexDirection: 'row' } : { flexDirection: 'row-reverse' }}
+                        style={
+                           opoUser.nickName === item.nickName
+                              ? { flexDirection: 'row' }
+                              : { flexDirection: 'row-reverse' }
+                        }
                      >
-                        <Image src={item.img} className={styles.yourMessageAvatar} alt={item.mainName}></Image>
+                        <Image
+                           src={opoUser.nickName === item.nickName ? getAvatar(opoUser) : getAvatar(user)}
+                           className={styles.yourMessageAvatar}
+                           alt={item.nickName}
+                        ></Image>
                         <div className={styles.yourMessage}>
                            <p className={styles.yourMessageTitle}>{item.title}</p>
                         </div>
@@ -31,17 +51,17 @@ function MessageList({ data }) {
                         >
                            <div
                               className={`${styles.settingIconWrapper} ${
-                                 currentIcon === item.id && styles.settingIconWrapper_Active
+                                 currentIcon === item._id && styles.settingIconWrapper_Active
                               }`}
                               onClick={() => {
-                                 setCurrentIcon(item.id);
+                                 setCurrentIcon(item._id);
                               }}
                            >
                               <ThreeDotIcon className={styles.settingIcon}></ThreeDotIcon>
                            </div>
                         </Tippy>
                      </div>
-                     {item.timeVisible && <div className={styles.time}>{item.time}</div>}
+                     {item.timeVisible && <div className={styles.time}>{getTime(item.time)}</div>}
                   </Fragment>
                );
             })}

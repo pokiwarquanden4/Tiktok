@@ -1,0 +1,194 @@
+.wrapper{
+    .header{
+        font-weight: 600;
+        font-size: 24px;
+        color: rgb(22, 24, 35);
+        padding: 25px 23px 20px;
+        border-bottom: 0.5px solid rgba(22, 24, 35, 0.2);
+    }
+    .profilePhoto {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        border-bottom: 0.5px solid rgba(22, 24, 35, 0.2);
+        .profilePhoto_header {
+            position: absolute;
+            top: 20px;
+            left: 3%;
+            font-weight: 600;
+            line-height: 24px;
+            font-size: 16px;
+        }
+        .avatar {
+            position: relative;
+            
+            margin: 16px 0;
+            width: 96px;
+            height: 96px;
+            .img{
+                cursor: pointer;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+            .editButton {
+                cursor: pointer;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                background: rgb(255, 255, 255);
+                 border: 1px solid rgb(208, 208, 211);
+                 box-sizing: border-box;
+            }
+        }
+    }
+    .userName {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        border-bottom: 0.5px solid rgba(22, 24, 35, 0.2);
+        .userName_header{
+            position: absolute;
+            top: 20px;
+            left: 3%;
+            font-weight: 600;
+            line-height: 24px;
+            font-size: 16px;
+        }
+        .userName_content {
+            margin-top: 17px;
+            margin-bottom: 17px;
+            .userName_notice {
+                .link, .notification{
+                    font-size: 12px;
+                    color: rgba(22, 24, 35, 0.75);
+                    line-height: 18px;
+                    max-width: 460px;
+                    overflow: hidden;
+                    margin-top: 8px;
+                    width: 360px;
+                }
+                
+            }
+            .userName_input {
+                padding: 7px 12px;
+                border: none;
+                width: 360px;
+                height: 38px;
+                border-radius: 4px;
+                background: rgba(22, 24, 35, 0.06);
+
+                &:focus-within {
+                    outline: rgba(22, 24, 35, 0.2) solid 1.5px;
+                }
+            }
+                       
+        }
+    }
+    .name{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        border-bottom: 0.5px solid rgba(22, 24, 35, 0.2);
+        .name_header{
+            position: absolute;
+            top: 20px;
+            left: 3%;
+            font-weight: 600;
+            line-height: 24px;
+            font-size: 16px;
+        }
+        .name_content{
+            margin-top: 17px;
+            margin-bottom: 17px;
+            
+            .name_input{
+                
+                padding: 7px 12px;
+                border: none;
+                width: 360px;
+                height: 38px;
+                border-radius: 4px;
+                background: rgba(22, 24, 35, 0.06);
+                
+                &:focus-within {
+                    outline: rgba(22, 24, 35, 0.2) solid 1.5px;
+                }
+            }
+            .name_notification {
+                font-size: 12px;
+                color: rgba(22, 24, 35, 0.75);
+                line-height: 18px;
+                max-width: 460px;
+                overflow: hidden;
+                margin-top: 8px;
+                width: 360px;
+            }
+        }
+    }
+    .bio{
+        display: flex;
+        justify-content: center;
+        position: relative;
+        border-bottom: 0.5px solid rgba(22, 24, 35, 0.2);
+        .bio_header {
+            position: absolute;
+            top: 20px;
+            left: 3%;
+            font-weight: 600;
+            line-height: 24px;
+            font-size: 16px;
+        }
+        .bio_content{
+            margin-top: 17px;
+            margin-bottom: 17px;
+            .bio_input {
+                resize: none;
+                padding: 7px 12px;
+                border: none;
+                width: 360px;
+                height: 100px;
+                border-radius: 4px;
+                background: rgba(22, 24, 35, 0.06);
+                &:focus-within {
+                    outline: rgba(22, 24, 35, 0.2) solid 1.5px;
+                }
+            }
+            .bio_letters {
+                font-size: 12px;
+                color: rgba(22, 24, 35, 0.75);
+                line-height: 18px;
+                max-width: 460px;
+                overflow: hidden;
+                margin-top: 8px;
+                width: 360px;
+            }
+        }
+    }
+    .button {
+       height: 86px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        .button_cancel {
+            font-size: 14px;
+             font-weight: 600;
+            width: 96px;
+            height: 36px;
+        }
+        .button_save{
+            margin-right: 20px;
+            font-size: 14px;
+            font-weight: 600;
+           width: 96px;
+           height: 36px;
+        }
+    }
+}

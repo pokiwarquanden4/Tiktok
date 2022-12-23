@@ -21,6 +21,7 @@
       "create-actions": "^2.0.0",
       "draft-js": "^0.11.7",
       "jquery": "^3.6.1",
+      "jwt-decode": "^3.1.2",
       "normalize.css": "^8.0.1",
       "react": "^18.2.0",
       "react-detect-click-outside": "^1.1.7",
@@ -33,7 +34,9 @@
       "redux": "^4.2.0",
       "redux-actions": "^2.6.5",
       "redux-devtools-extension": "^2.13.9",
+      "redux-persist": "^6.0.0",
       "redux-saga": "^1.2.1",
+      "socket.io-client": "^4.5.3",
       "web-vitals": "^2.1.4"
    },
    "devDependencies": {

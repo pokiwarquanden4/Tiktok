@@ -7,7 +7,13 @@ import { Link } from 'react-router-dom';
 import Tippy from '@tippyjs/react/headless';
 import { userAvatar } from 'api';
 import { AccountPreview } from 'src/Layout/AllLayout/SideBar/Recommend/AccountPreview';
+import { useDispatch, useSelector } from 'react-redux';
+import { inputZone } from 'redux/actions/InputZoneActions/InputZoneActions';
+import { activeUserSelector } from 'redux/selectors/usersSelector';
+
 function AccountItem({ data, className, classNameImage, tippy, listForLive }) {
+   const dispatch = useDispatch();
+   const currentUser = useSelector(activeUserSelector);
    const classes = `${Styles.wrapper} ${className ? ([Styles.className] = className) : ''}`;
    const classesImage = `${classNameImage ? ([Styles.classNameImage] = classNameImage) : ''}`;
 
@@ -28,7 +34,16 @@ function AccountItem({ data, className, classNameImage, tippy, listForLive }) {
             placement="bottom"
             render={(attrs) => <AccountPreview data={data}></AccountPreview>}
          >
-            <Link to={`/@${data.nickName}`} className={classes}>
+            <Link
+               to={`/@${data.nickName}`}
+               className={classes}
+               onClick={(e) => {
+                  if (currentUser && Object.keys(currentUser).length === 0) {
+                     dispatch(inputZone.showLoginSignUp());
+                     e.preventDefault();
+                  }
+               }}
+            >
                <Image src={getAvatar(data)} className={classesImage} alt={data.full_name}></Image>
                <div className={Styles.info}>
                   <h4 className={Styles.main__Name}>

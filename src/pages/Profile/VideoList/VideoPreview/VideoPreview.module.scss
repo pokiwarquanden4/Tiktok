@@ -1,4 +1,11 @@
 .videoWrapper {
+   .videoResize{
+      height: 100%;
+      background-color: black;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+   } 
    .video {
       border-radius: 5px;
       width: calc(100%);

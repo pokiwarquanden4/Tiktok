@@ -1,7 +1,11 @@
 import styles from './LiveVideo.module.scss';
 import Image from 'src/components/images';
 import { FollowingIcon } from 'components/Icon';
+import { useDispatch } from 'react-redux';
+import { inputZone } from 'redux/actions/InputZoneActions/InputZoneActions';
 function LiveVideo({ video }) {
+   const dispatch = useDispatch()
+
    return (
       <div className={styles.wrapper}>
          <div className={styles.videoWrapper}>
@@ -21,7 +25,10 @@ function LiveVideo({ video }) {
                <div className={styles.liveStatus}>LIVE</div>
             </div>
          </div>
-         <div className={styles.watchLiveButton}>Watch LIVE</div>
+         <div className={styles.watchLiveButton} 
+         onClick={()=>{
+            dispatch(inputZone.showComingSoon())
+         }}>Watch LIVE</div>
       </div>
    );
 }

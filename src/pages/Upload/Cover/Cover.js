@@ -22,20 +22,11 @@ function Cover({ videoLink, coverPic, setCoverPic }) {
             const input = () => {
                const rangeValue = rangerRef.current.value;
                video.currentTime = (rangeValue / 100) * duration;
+               setCoverPic(Math.floor((rangeValue / 100) * duration) )
                videoSlider.current.style.left = `calc(${rangeValue / 100} * (100% - 96px))`;
             };
-            const videoSeeked = () => {
-               var canvas = document.createElement('canvas');
-               canvas.height = video.videoHeight;
-               canvas.width = video.videoWidth;
-               var ctx = canvas.getContext('2d');
-               ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-               // var url = canvas.toDataURL();
-            };
+            
             rangerRef.current.addEventListener('input', input);
-            video.addEventListener('seeked', videoSeeked);
-
-            videoSeeked();
          };
       } else {
          setBackGroundPic(null);

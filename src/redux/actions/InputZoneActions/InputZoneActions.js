@@ -5,6 +5,12 @@ export const getType = (reduxAction) => {
 };
 
 export const inputZone = createActions({
-   hide: undefined,
-   show: undefined,
+   hideLoginSignUp: undefined,
+   showLoginSignUp: undefined,
+
+   hideEditUser: undefined,
+   showEditUser: undefined,
+
+   hideComingSoon: undefined,
+   showComingSoon: undefined,
 });

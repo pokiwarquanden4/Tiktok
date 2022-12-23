@@ -63,6 +63,21 @@
                background-color: #fef3f5;
             }
          }
+         .editButton{
+            border-radius: 4px;
+            padding: 6px 10px;
+            width: 164px;
+            height: 36px;
+            font-weight: 700;
+            font-weight: bolder;
+            font-size: 18px;
+            line-height: 22px;
+            
+            border: solid 1px var(--main-color);
+            &:hover {
+               background-color: rgba(248, 248, 248, 1);
+            }
+         }
          .buttonWrapper {
             margin-top: 10px;
             display: flex;
