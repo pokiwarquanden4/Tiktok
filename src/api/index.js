@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL = 'https://sever.onrender.com';
+const URL = process.env.REACT_APP_URL;
 
 //Using Redux Store
 export const createUserAPI = (payload) => {

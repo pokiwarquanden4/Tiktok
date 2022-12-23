@@ -1,5 +1,6 @@
 import { io } from 'socket.io-client';
 
-const socket = io('https://sever.onrender.com');
+const URL = process.env.REACT_APP_URL;
+const socket = io(URL);
 
 export default socket;
