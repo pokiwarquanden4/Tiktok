@@ -29,13 +29,8 @@ function UserInput({ fullNameRef, lastNameRef, nickNameCheck, nickNameRef, passw
                ></input>
             </div>
             <div className={styles.user_avatar}>
-               <div className={styles.avatar_title}>Avatar</div>
-               <input
-                  className={styles.avatar_input}
-                  type="file"
-                  accept="image/png, image/jpeg"
-                  ref={avatarRef}
-               ></input>
+               <div className={styles.avatar_title}>Avatar (png, jpg file)</div>
+               <input className={styles.avatar_input} type="file" accept="image/png, image/jpg" ref={avatarRef}></input>
             </div>
          </div>
       </div>

@@ -6,11 +6,13 @@ import { videoSelector } from 'redux/selectors/videoSelector';
 import { useEffect, useRef, useState } from 'react';
 import { lazyLoadingSelector } from 'redux/selectors/lazyLoadingSelector';
 import { lazyLoadingActions } from 'redux/actions/LazyLoading/LazyLoadingActions';
+import { activeUserSelector } from 'redux/selectors/usersSelector';
 
 function Home() {
    const dispatch = useDispatch();
    const videos = useSelector(videoSelector);
    const lazyLoadVideos = useSelector(lazyLoadingSelector);
+   const user = useSelector(activeUserSelector);
    const [numberList, setNumberList] = useState();
    const [videoLists, setVideoLists] = useState(null);
    useEffect(() => {
@@ -80,14 +82,20 @@ function Home() {
 
    return (
       <div className={styles.wrapper}>
-         {videoLists ? (
-            numberList.map((number) => {
-               return videoLists[number].map((video, index) => {
-                  return <ListVideo video={video} key={video._id} index={index}></ListVideo>;
-               });
-            })
+         {Object.keys(user).length !== 0 ? (
+            videoLists ? (
+               numberList.map((number) => {
+                  return videoLists[number].map((video, index) => {
+                     return <ListVideo video={video} key={video._id} index={index}></ListVideo>;
+                  });
+               })
+            ) : (
+               <LoadingAnimation></LoadingAnimation>
+            )
          ) : (
-            <LoadingAnimation></LoadingAnimation>
+            <div>
+               You Haven't login yet. You can use nickName: pokiwarquanden4, password: 12345 or create your new account
+            </div>
          )}
       </div>
    );
