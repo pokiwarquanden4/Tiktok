@@ -23,7 +23,7 @@ const rootReducer = combineReducers({
 const persistConfig = {
    key: 'root',
    storage,
-   blacklist: ['inputZoneReducer', 'recommendUserReducer', 'videoReducer', 'lazyLoadingReducers'],
+   blacklist: ['inputZoneReducer', 'recommendUserReducer', 'videoReducer', 'lazyLoadingReducers', 'messageReducer'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
