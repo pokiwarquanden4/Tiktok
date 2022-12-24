@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';
 
 function UserVideo_Typing({ replyTo, setReplyTo, user, video }) {
+   console.log(replyTo);
    const dispatch = useDispatch();
    const currentUser = useSelector(activeUserSelector);
    const [text, setText] = useState('');

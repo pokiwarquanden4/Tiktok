@@ -15,7 +15,7 @@ function UserVideo_Comment({ notHost, data, setReplyTo, video }) {
    const [liker, setLiker] = useState(data.liker);
 
    const handleReply = () => {
-      setReplyTo([data.id, data.name]);
+      setReplyTo([data.parentId || data.id, data.name]);
    };
 
    return (
