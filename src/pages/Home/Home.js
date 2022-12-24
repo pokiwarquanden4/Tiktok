@@ -90,11 +90,11 @@ function Home() {
                   });
                })
             ) : (
-               <LoadingAnimation></LoadingAnimation>
+               <div>You need to post some videos or follow someone who have videos</div>
             )
          ) : (
             <div>
-               You Haven't login yet. You can use nickName: pokiwarquanden4, password: 12345 or create your new account
+               You haven't login yet. You can use nickName: pokiwarquanden4, password: 12345 or create your new account
             </div>
          )}
       </div>

@@ -18,6 +18,7 @@ function Message() {
    const messagers = useSelector(messageSelector);
    const user = useSelector(activeUserSelector);
    const [currentUser, setCurrenUser] = useState(location.state ? location.state.idRoom : 0);
+   const [messageList, setMessageList] = useState(null);
    const getUserData = useCallback(() => {
       if (messagers) {
          let value;
@@ -30,6 +31,15 @@ function Message() {
       }
    });
 
+   useEffect(() => {
+      const result = [];
+      for (let i = 0; i < messagers.length; i++) {
+         if (user.message.indexOf(messagers[i]._id) !== -1) {
+            result.push(messagers[i]);
+         }
+      }
+      setMessageList(result);
+   }, [messagers]);
    useEffect(() => {
       if (currentUser) {
          seenMessageAPI({
@@ -55,7 +65,7 @@ function Message() {
    });
 
    return (
-      messagers && (
+      messageList && (
          <div className={styles.wrapper}>
             <Wrapper className={styles.listUser}>
                <div className={styles.header}>
@@ -65,10 +75,10 @@ function Message() {
                   </span>
                </div>
                <div className={styles.content}>
-                  {messagers.length === 0 ? (
+                  {messageList.length === 0 ? (
                      <p className={styles.noMessage}>No messages yet</p>
                   ) : (
-                     messagers.map((message) => {
+                     messageList.map((message) => {
                         return (
                            <MessageUser
                               key={message._id}
@@ -85,7 +95,7 @@ function Message() {
                </div>
             </Wrapper>
             <Wrapper className={styles.messageZone}>
-               {messagers.length > 0 && (
+               {messageList.length > 0 && (
                   <MessageZone data={getUserData()} user={user} chatUser={getChatUser(getUserData())}></MessageZone>
                )}
             </Wrapper>

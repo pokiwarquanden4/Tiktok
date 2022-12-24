@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { videoActions } from 'redux/actions/VideoActions/VideoActions';
 import { videoSelector } from 'redux/selectors/videoSelector';
 import { activeUserSelector } from 'redux/selectors/usersSelector';
-import { messageSelector } from 'redux/selectors/messageSelector';
 import { messageAction } from 'redux/actions/messageActions/messageActions';
 import socketMessage from 'socket/socketActions/socketMessage';
 
