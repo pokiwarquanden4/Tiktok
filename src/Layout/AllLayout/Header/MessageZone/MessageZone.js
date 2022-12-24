@@ -16,9 +16,11 @@ function MessageZone() {
    useEffect(() => {
       let count = 0;
       for (let i = 0; i < messages.length; i++) {
-         for (let j = 0; j < messages[i].comment.length; j++) {
-            if (messages[i].comment[j].seen === false && messages[i].comment[j].nickName !== currentUser.nickName) {
-               count++;
+         if (currentUser.message.indexOf(messages[i]._id) !== -1) {
+            for (let j = 0; j < messages[i].comment.length; j++) {
+               if (messages[i].comment[j].seen === false && messages[i].comment[j].nickName !== currentUser.nickName) {
+                  count++;
+               }
             }
          }
       }
