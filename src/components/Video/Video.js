@@ -4,10 +4,8 @@ import { faPause, faCaretRight, faVolumeHigh, faVolumeXmark } from '@fortawesome
 import { Fragment, memo, useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { userVideoLink } from 'api';
-import LTKH from 'src/components/Video/LTKH.mp4';
 
 function Video({ autoPlay, setAutoPlay, noComment, videoUploadLink, video, videoResize, nonController, nonBorder }) {
-   
    const classes = `${styles.videoPLayer} ${videoResize && styles.videoResize} ${nonBorder && styles.nonBorder}`;
 
    //Video Controler
@@ -73,10 +71,10 @@ function Video({ autoPlay, setAutoPlay, noComment, videoUploadLink, video, video
    useEffect(() => {
       if (autoPlay) {
          videoRef.current.play();
-         
       } else {
-         videoRef.current.load();
-   
+         // videoRef.current.load();
+         videoRef.current.currentTime = 0;
+         videoRef.current.pause();
       }
    }, [autoPlay]);
 
@@ -110,16 +108,6 @@ function Video({ autoPlay, setAutoPlay, noComment, videoUploadLink, video, video
       }
    }, []);
 
-   // console.log('videoName: ' + video.video)
-   // console.log('autoPlay: ' + autoPlay)
-   // console.log('noComment: ' + noComment)
-   // console.log('videoUploadLink: ' + videoUploadLink)
-   // console.log('video: ' + video)
-   // console.log('videoResize: ' + videoResize)
-   // console.log('nonController: ' + nonController)
-   // console.log('nonBorder: ' + nonBorder)
-   // console.log('nonBorder: ' + nonBorder)
-   // console.log('sound: ' + sound)
    return (
       <div className={classes}>
          {noComment ? (
@@ -135,7 +123,7 @@ function Video({ autoPlay, setAutoPlay, noComment, videoUploadLink, video, video
                <video
                   ref={videoRef}
                   muted
-                  src={userVideoLink(video.nickName + '/MainVideo/' + video.video + '#t='  +0)}
+                  src={userVideoLink(video.nickName + '/MainVideo/' + video.video + '#t=' + 0)}
                   loop={true}
                   className={`${styles.video} ${nonBorder && styles.nonBorder}`}
                ></video>
