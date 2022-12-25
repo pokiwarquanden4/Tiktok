@@ -75,6 +75,9 @@ function UserVideo_Typing({ replyTo, setReplyTo, user, video }) {
                   onChange={(e) => {
                      handleChange(e);
                   }}
+                  onKeyDown={(e) => {
+                     e.key === 'Enter' && handlePost();
+                  }}
                ></input>
                <Tippy content="'@' a user to tag them in your comments">
                   <span>
